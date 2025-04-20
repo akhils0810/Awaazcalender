@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>Shift Summary</h2>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Shift Type</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for shift_name, times in shift_definitions.items() %}
+                    <tr>
+                        <td><strong>{{ shift_name }}</strong></td>
+                        <td>{{ times.start }}</td>
+                        <td>{{ times.end }}</td>
+                        <td>
+                            {% set start_hour = times.start.split(':')[0]|int %}
+                            {% set end_hour = times.end.split(':')[0]|int %}
+                            {% if end_hour <= start_hour %}
+                                {% set end_hour = end_hour + 24 %}
+                            {% endif %}
+                            {{ end_hour - start_hour }} hours
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.table th {
+    background-color: #f8f9fa;
+}
+.table td {
+    vertical-align: middle;
+    padding: 12px;
+}
+.table {
+    margin-bottom: 0;
+}
+</style>
+{% endblock %} 

@@ -1,0 +1,18 @@
+{
+  "monthly_2025-04-17": {
+    "view": "monthly",
+    "start_date": "2025-04-17",
+    "template_id": "18",
+    "template_name": "GroupHome-Capacity-3 (256 hrs/week)",
+    "modified_shifts": [],
+    "last_updated": "2025-04-17 18:24:45"
+  },
+  "monthly_2025-05-01": {
+    "view": "monthly",
+    "start_date": "2025-05-01",
+    "template_id": "18",
+    "template_name": "GroupHome-Capacity-3 (256 hrs/week)",
+    "modified_shifts": [],
+    "last_updated": "2025-04-17 18:24:49"
+  }
+}

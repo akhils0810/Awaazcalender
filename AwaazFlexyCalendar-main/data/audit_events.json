@@ -1,0 +1,4266 @@
+[
+  {
+    "id": "1",
+    "type": "Template Applied",
+    "user": "system",
+    "timestamp": "2025-04-17 18:16:22",
+    "details": {
+      "template_id": "18",
+      "template_name": "GroupHome-Capacity-3 (256 hrs/week)",
+      "start_date": "2025-04-17",
+      "num_weeks": 13,
+      "shifts_added": 442
+    }
+  },
+  {
+    "id": "2",
+    "type": "Shift Deleted",
+    "user": "system",
+    "timestamp": "2025-04-17 18:17:20",
+    "details": {
+      "shift_id": "103",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "start": "2025-04-28 00:01",
+      "end": "2025-04-28 08:00"
+    }
+  },
+  {
+    "id": "3",
+    "type": "Template Applied",
+    "user": "system",
+    "timestamp": "2025-04-17 18:24:23",
+    "details": {
+      "template_id": "18",
+      "template_name": "GroupHome-Capacity-3 (256 hrs/week)",
+      "start_date": "2025-04-17",
+      "num_weeks": 4,
+      "shifts_added": 136
+    }
+  },
+  {
+    "id": "4",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "1",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-21 00:01",
+      "end": "2025-04-21 08:00"
+    }
+  },
+  {
+    "id": "5",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "2",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-22 00:01",
+      "end": "2025-04-22 08:00"
+    }
+  },
+  {
+    "id": "6",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "3",
+      "shift_type": "A1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-23 00:01",
+      "end": "2025-04-23 08:00"
+    }
+  },
+  {
+    "id": "7",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "4",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-24 00:01",
+      "end": "2025-04-24 08:00"
+    }
+  },
+  {
+    "id": "8",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "5",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-25 00:01",
+      "end": "2025-04-25 08:00"
+    }
+  },
+  {
+    "id": "9",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "6",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-26 00:01",
+      "end": "2025-04-26 08:00"
+    }
+  },
+  {
+    "id": "10",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "7",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-27 00:01",
+      "end": "2025-04-27 08:00"
+    }
+  },
+  {
+    "id": "11",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "8",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-21 06:00",
+      "end": "2025-04-21 14:00"
+    }
+  },
+  {
+    "id": "12",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "9",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-22 06:00",
+      "end": "2025-04-22 14:00"
+    }
+  },
+  {
+    "id": "13",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "10",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-23 06:00",
+      "end": "2025-04-23 14:00"
+    }
+  },
+  {
+    "id": "14",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "11",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-24 06:00",
+      "end": "2025-04-24 14:00"
+    }
+  },
+  {
+    "id": "15",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "12",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-25 06:00",
+      "end": "2025-04-25 14:00"
+    }
+  },
+  {
+    "id": "16",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "13",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-26 06:00",
+      "end": "2025-04-26 14:00"
+    }
+  },
+  {
+    "id": "17",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "14",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-27 06:00",
+      "end": "2025-04-27 14:00"
+    }
+  },
+  {
+    "id": "18",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "15",
+      "shift_type": "B1",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-22 14:00",
+      "end": "2025-04-22 22:00"
+    }
+  },
+  {
+    "id": "19",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "16",
+      "shift_type": "B1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-25 14:00",
+      "end": "2025-04-25 22:00"
+    }
+  },
+  {
+    "id": "20",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "17",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-21 16:00",
+      "end": "2025-04-21 23:59"
+    }
+  },
+  {
+    "id": "21",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "18",
+      "shift_type": "B2",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-22 16:00",
+      "end": "2025-04-22 23:59"
+    }
+  },
+  {
+    "id": "22",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "19",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-23 16:00",
+      "end": "2025-04-23 23:59"
+    }
+  },
+  {
+    "id": "23",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "20",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-24 16:00",
+      "end": "2025-04-24 23:59"
+    }
+  },
+  {
+    "id": "24",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "21",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-25 16:00",
+      "end": "2025-04-25 23:59"
+    }
+  },
+  {
+    "id": "25",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "22",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-26 16:00",
+      "end": "2025-04-26 23:59"
+    }
+  },
+  {
+    "id": "26",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "23",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-27 16:00",
+      "end": "2025-04-27 23:59"
+    }
+  },
+  {
+    "id": "27",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "24",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-21 18:00",
+      "end": "2025-04-21 22:00"
+    }
+  },
+  {
+    "id": "28",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "25",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-22 18:00",
+      "end": "2025-04-22 22:00"
+    }
+  },
+  {
+    "id": "29",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "26",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-23 18:00",
+      "end": "2025-04-23 22:00"
+    }
+  },
+  {
+    "id": "30",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "27",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-24 18:00",
+      "end": "2025-04-24 22:00"
+    }
+  },
+  {
+    "id": "31",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "28",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-21 10:00",
+      "end": "2025-04-21 18:00"
+    }
+  },
+  {
+    "id": "32",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "29",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-22 10:00",
+      "end": "2025-04-22 18:00"
+    }
+  },
+  {
+    "id": "33",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "30",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-23 10:00",
+      "end": "2025-04-23 18:00"
+    }
+  },
+  {
+    "id": "34",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "31",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-24 10:00",
+      "end": "2025-04-24 18:00"
+    }
+  },
+  {
+    "id": "35",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "32",
+      "shift_type": "G",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-25 10:00",
+      "end": "2025-04-25 18:00"
+    }
+  },
+  {
+    "id": "36",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "33",
+      "shift_type": "G",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-26 10:00",
+      "end": "2025-04-26 18:00"
+    }
+  },
+  {
+    "id": "37",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:24",
+    "details": {
+      "shift_id": "34",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-27 10:00",
+      "end": "2025-04-27 18:00"
+    }
+  },
+  {
+    "id": "38",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "35",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-28 00:01",
+      "end": "2025-04-28 08:00"
+    }
+  },
+  {
+    "id": "39",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "36",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-29 00:01",
+      "end": "2025-04-29 08:00"
+    }
+  },
+  {
+    "id": "40",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "37",
+      "shift_type": "A1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-30 00:01",
+      "end": "2025-04-30 08:00"
+    }
+  },
+  {
+    "id": "41",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "38",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-01 00:01",
+      "end": "2025-05-01 08:00"
+    }
+  },
+  {
+    "id": "42",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "39",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-02 00:01",
+      "end": "2025-05-02 08:00"
+    }
+  },
+  {
+    "id": "43",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "40",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-03 00:01",
+      "end": "2025-05-03 08:00"
+    }
+  },
+  {
+    "id": "44",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "41",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-04 00:01",
+      "end": "2025-05-04 08:00"
+    }
+  },
+  {
+    "id": "45",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "42",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-28 06:00",
+      "end": "2025-04-28 14:00"
+    }
+  },
+  {
+    "id": "46",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "43",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-29 06:00",
+      "end": "2025-04-29 14:00"
+    }
+  },
+  {
+    "id": "47",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "44",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-30 06:00",
+      "end": "2025-04-30 14:00"
+    }
+  },
+  {
+    "id": "48",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "45",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-01 06:00",
+      "end": "2025-05-01 14:00"
+    }
+  },
+  {
+    "id": "49",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "46",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-02 06:00",
+      "end": "2025-05-02 14:00"
+    }
+  },
+  {
+    "id": "50",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "47",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-03 06:00",
+      "end": "2025-05-03 14:00"
+    }
+  },
+  {
+    "id": "51",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "48",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-04 06:00",
+      "end": "2025-05-04 14:00"
+    }
+  },
+  {
+    "id": "52",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "49",
+      "shift_type": "B1",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-29 14:00",
+      "end": "2025-04-29 22:00"
+    }
+  },
+  {
+    "id": "53",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:38",
+    "details": {
+      "shift_id": "50",
+      "shift_type": "B1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-02 14:00",
+      "end": "2025-05-02 22:00"
+    }
+  },
+  {
+    "id": "54",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "51",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-28 16:00",
+      "end": "2025-04-28 23:59"
+    }
+  },
+  {
+    "id": "55",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "52",
+      "shift_type": "B2",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-29 16:00",
+      "end": "2025-04-29 23:59"
+    }
+  },
+  {
+    "id": "56",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "53",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-30 16:00",
+      "end": "2025-04-30 23:59"
+    }
+  },
+  {
+    "id": "57",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "54",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-01 16:00",
+      "end": "2025-05-01 23:59"
+    }
+  },
+  {
+    "id": "58",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "55",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-02 16:00",
+      "end": "2025-05-02 23:59"
+    }
+  },
+  {
+    "id": "59",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "56",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-03 16:00",
+      "end": "2025-05-03 23:59"
+    }
+  },
+  {
+    "id": "60",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "57",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-04 16:00",
+      "end": "2025-05-04 23:59"
+    }
+  },
+  {
+    "id": "61",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "58",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-28 18:00",
+      "end": "2025-04-28 22:00"
+    }
+  },
+  {
+    "id": "62",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "59",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-29 18:00",
+      "end": "2025-04-29 22:00"
+    }
+  },
+  {
+    "id": "63",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "60",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-30 18:00",
+      "end": "2025-04-30 22:00"
+    }
+  },
+  {
+    "id": "64",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "61",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-01 18:00",
+      "end": "2025-05-01 22:00"
+    }
+  },
+  {
+    "id": "65",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "62",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-28 10:00",
+      "end": "2025-04-28 18:00"
+    }
+  },
+  {
+    "id": "66",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "63",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-29 10:00",
+      "end": "2025-04-29 18:00"
+    }
+  },
+  {
+    "id": "67",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "64",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-30 10:00",
+      "end": "2025-04-30 18:00"
+    }
+  },
+  {
+    "id": "68",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "65",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-01 10:00",
+      "end": "2025-05-01 18:00"
+    }
+  },
+  {
+    "id": "69",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "66",
+      "shift_type": "G",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-02 10:00",
+      "end": "2025-05-02 18:00"
+    }
+  },
+  {
+    "id": "70",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "67",
+      "shift_type": "G",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-03 10:00",
+      "end": "2025-05-03 18:00"
+    }
+  },
+  {
+    "id": "71",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:27:39",
+    "details": {
+      "shift_id": "68",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-04 10:00",
+      "end": "2025-05-04 18:00"
+    }
+  },
+  {
+    "id": "72",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "1",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-28 00:01",
+      "end": "2025-04-28 08:00"
+    }
+  },
+  {
+    "id": "73",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "2",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-29 00:01",
+      "end": "2025-04-29 08:00"
+    }
+  },
+  {
+    "id": "74",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "3",
+      "shift_type": "A1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-30 00:01",
+      "end": "2025-04-30 08:00"
+    }
+  },
+  {
+    "id": "75",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "4",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-01 00:01",
+      "end": "2025-05-01 08:00"
+    }
+  },
+  {
+    "id": "76",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "5",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-02 00:01",
+      "end": "2025-05-02 08:00"
+    }
+  },
+  {
+    "id": "77",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "6",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-03 00:01",
+      "end": "2025-05-03 08:00"
+    }
+  },
+  {
+    "id": "78",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "7",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-04 00:01",
+      "end": "2025-05-04 08:00"
+    }
+  },
+  {
+    "id": "79",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "8",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-28 06:00",
+      "end": "2025-04-28 14:00"
+    }
+  },
+  {
+    "id": "80",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "9",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-29 06:00",
+      "end": "2025-04-29 14:00"
+    }
+  },
+  {
+    "id": "81",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "10",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-30 06:00",
+      "end": "2025-04-30 14:00"
+    }
+  },
+  {
+    "id": "82",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "11",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-01 06:00",
+      "end": "2025-05-01 14:00"
+    }
+  },
+  {
+    "id": "83",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "12",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-02 06:00",
+      "end": "2025-05-02 14:00"
+    }
+  },
+  {
+    "id": "84",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "13",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-03 06:00",
+      "end": "2025-05-03 14:00"
+    }
+  },
+  {
+    "id": "85",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "14",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-04 06:00",
+      "end": "2025-05-04 14:00"
+    }
+  },
+  {
+    "id": "86",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "15",
+      "shift_type": "B1",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-29 14:00",
+      "end": "2025-04-29 22:00"
+    }
+  },
+  {
+    "id": "87",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "16",
+      "shift_type": "B1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-02 14:00",
+      "end": "2025-05-02 22:00"
+    }
+  },
+  {
+    "id": "88",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "17",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-28 16:00",
+      "end": "2025-04-28 23:59"
+    }
+  },
+  {
+    "id": "89",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "18",
+      "shift_type": "B2",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-29 16:00",
+      "end": "2025-04-29 23:59"
+    }
+  },
+  {
+    "id": "90",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "19",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-30 16:00",
+      "end": "2025-04-30 23:59"
+    }
+  },
+  {
+    "id": "91",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "20",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-01 16:00",
+      "end": "2025-05-01 23:59"
+    }
+  },
+  {
+    "id": "92",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "21",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-02 16:00",
+      "end": "2025-05-02 23:59"
+    }
+  },
+  {
+    "id": "93",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "22",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-03 16:00",
+      "end": "2025-05-03 23:59"
+    }
+  },
+  {
+    "id": "94",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "23",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-04 16:00",
+      "end": "2025-05-04 23:59"
+    }
+  },
+  {
+    "id": "95",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "24",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-28 18:00",
+      "end": "2025-04-28 22:00"
+    }
+  },
+  {
+    "id": "96",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "25",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-29 18:00",
+      "end": "2025-04-29 22:00"
+    }
+  },
+  {
+    "id": "97",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "26",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-30 18:00",
+      "end": "2025-04-30 22:00"
+    }
+  },
+  {
+    "id": "98",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "27",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-01 18:00",
+      "end": "2025-05-01 22:00"
+    }
+  },
+  {
+    "id": "99",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "28",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-28 10:00",
+      "end": "2025-04-28 18:00"
+    }
+  },
+  {
+    "id": "100",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "29",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-29 10:00",
+      "end": "2025-04-29 18:00"
+    }
+  },
+  {
+    "id": "101",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "30",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-30 10:00",
+      "end": "2025-04-30 18:00"
+    }
+  },
+  {
+    "id": "102",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "31",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-01 10:00",
+      "end": "2025-05-01 18:00"
+    }
+  },
+  {
+    "id": "103",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "32",
+      "shift_type": "G",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-02 10:00",
+      "end": "2025-05-02 18:00"
+    }
+  },
+  {
+    "id": "104",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "33",
+      "shift_type": "G",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-03 10:00",
+      "end": "2025-05-03 18:00"
+    }
+  },
+  {
+    "id": "105",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:31:59",
+    "details": {
+      "shift_id": "34",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-04 10:00",
+      "end": "2025-05-04 18:00"
+    }
+  },
+  {
+    "id": "106",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "1",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-21 00:01",
+      "end": "2025-04-21 08:00"
+    }
+  },
+  {
+    "id": "107",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "2",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-22 00:01",
+      "end": "2025-04-22 08:00"
+    }
+  },
+  {
+    "id": "108",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "3",
+      "shift_type": "A1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-23 00:01",
+      "end": "2025-04-23 08:00"
+    }
+  },
+  {
+    "id": "109",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "4",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-24 00:01",
+      "end": "2025-04-24 08:00"
+    }
+  },
+  {
+    "id": "110",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "5",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-25 00:01",
+      "end": "2025-04-25 08:00"
+    }
+  },
+  {
+    "id": "111",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "6",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-26 00:01",
+      "end": "2025-04-26 08:00"
+    }
+  },
+  {
+    "id": "112",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "7",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-27 00:01",
+      "end": "2025-04-27 08:00"
+    }
+  },
+  {
+    "id": "113",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "8",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-21 06:00",
+      "end": "2025-04-21 14:00"
+    }
+  },
+  {
+    "id": "114",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "9",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-22 06:00",
+      "end": "2025-04-22 14:00"
+    }
+  },
+  {
+    "id": "115",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:22",
+    "details": {
+      "shift_id": "10",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-23 06:00",
+      "end": "2025-04-23 14:00"
+    }
+  },
+  {
+    "id": "116",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "11",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-24 06:00",
+      "end": "2025-04-24 14:00"
+    }
+  },
+  {
+    "id": "117",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "12",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-25 06:00",
+      "end": "2025-04-25 14:00"
+    }
+  },
+  {
+    "id": "118",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "13",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-26 06:00",
+      "end": "2025-04-26 14:00"
+    }
+  },
+  {
+    "id": "119",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "14",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-27 06:00",
+      "end": "2025-04-27 14:00"
+    }
+  },
+  {
+    "id": "120",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "15",
+      "shift_type": "B1",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-22 14:00",
+      "end": "2025-04-22 22:00"
+    }
+  },
+  {
+    "id": "121",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "16",
+      "shift_type": "B1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-25 14:00",
+      "end": "2025-04-25 22:00"
+    }
+  },
+  {
+    "id": "122",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "17",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-21 16:00",
+      "end": "2025-04-21 23:59"
+    }
+  },
+  {
+    "id": "123",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "18",
+      "shift_type": "B2",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-22 16:00",
+      "end": "2025-04-22 23:59"
+    }
+  },
+  {
+    "id": "124",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "19",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-23 16:00",
+      "end": "2025-04-23 23:59"
+    }
+  },
+  {
+    "id": "125",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "20",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-24 16:00",
+      "end": "2025-04-24 23:59"
+    }
+  },
+  {
+    "id": "126",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "21",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-25 16:00",
+      "end": "2025-04-25 23:59"
+    }
+  },
+  {
+    "id": "127",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "22",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-26 16:00",
+      "end": "2025-04-26 23:59"
+    }
+  },
+  {
+    "id": "128",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "23",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-27 16:00",
+      "end": "2025-04-27 23:59"
+    }
+  },
+  {
+    "id": "129",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "24",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-21 18:00",
+      "end": "2025-04-21 22:00"
+    }
+  },
+  {
+    "id": "130",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "25",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-22 18:00",
+      "end": "2025-04-22 22:00"
+    }
+  },
+  {
+    "id": "131",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "26",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-23 18:00",
+      "end": "2025-04-23 22:00"
+    }
+  },
+  {
+    "id": "132",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "27",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-24 18:00",
+      "end": "2025-04-24 22:00"
+    }
+  },
+  {
+    "id": "133",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "28",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-21 10:00",
+      "end": "2025-04-21 18:00"
+    }
+  },
+  {
+    "id": "134",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "29",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-22 10:00",
+      "end": "2025-04-22 18:00"
+    }
+  },
+  {
+    "id": "135",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "30",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-23 10:00",
+      "end": "2025-04-23 18:00"
+    }
+  },
+  {
+    "id": "136",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "31",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-24 10:00",
+      "end": "2025-04-24 18:00"
+    }
+  },
+  {
+    "id": "137",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "32",
+      "shift_type": "G",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-25 10:00",
+      "end": "2025-04-25 18:00"
+    }
+  },
+  {
+    "id": "138",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "33",
+      "shift_type": "G",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-26 10:00",
+      "end": "2025-04-26 18:00"
+    }
+  },
+  {
+    "id": "139",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:56:23",
+    "details": {
+      "shift_id": "34",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-27 10:00",
+      "end": "2025-04-27 18:00"
+    }
+  },
+  {
+    "id": "140",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "35",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-28 00:01",
+      "end": "2025-04-28 08:00"
+    }
+  },
+  {
+    "id": "141",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "36",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-29 00:01",
+      "end": "2025-04-29 08:00"
+    }
+  },
+  {
+    "id": "142",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "37",
+      "shift_type": "A1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-30 00:01",
+      "end": "2025-04-30 08:00"
+    }
+  },
+  {
+    "id": "143",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "38",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-01 00:01",
+      "end": "2025-05-01 08:00"
+    }
+  },
+  {
+    "id": "144",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "39",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-02 00:01",
+      "end": "2025-05-02 08:00"
+    }
+  },
+  {
+    "id": "145",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "40",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-03 00:01",
+      "end": "2025-05-03 08:00"
+    }
+  },
+  {
+    "id": "146",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "41",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-04 00:01",
+      "end": "2025-05-04 08:00"
+    }
+  },
+  {
+    "id": "147",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "42",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-28 06:00",
+      "end": "2025-04-28 14:00"
+    }
+  },
+  {
+    "id": "148",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "43",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-29 06:00",
+      "end": "2025-04-29 14:00"
+    }
+  },
+  {
+    "id": "149",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "44",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-30 06:00",
+      "end": "2025-04-30 14:00"
+    }
+  },
+  {
+    "id": "150",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "45",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-01 06:00",
+      "end": "2025-05-01 14:00"
+    }
+  },
+  {
+    "id": "151",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "46",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-02 06:00",
+      "end": "2025-05-02 14:00"
+    }
+  },
+  {
+    "id": "152",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "47",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-03 06:00",
+      "end": "2025-05-03 14:00"
+    }
+  },
+  {
+    "id": "153",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "48",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-04 06:00",
+      "end": "2025-05-04 14:00"
+    }
+  },
+  {
+    "id": "154",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:07",
+    "details": {
+      "shift_id": "49",
+      "shift_type": "B1",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-04-29 14:00",
+      "end": "2025-04-29 22:00"
+    }
+  },
+  {
+    "id": "155",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "50",
+      "shift_type": "B1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-02 14:00",
+      "end": "2025-05-02 22:00"
+    }
+  },
+  {
+    "id": "156",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "51",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-28 16:00",
+      "end": "2025-04-28 23:59"
+    }
+  },
+  {
+    "id": "157",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "52",
+      "shift_type": "B2",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-04-29 16:00",
+      "end": "2025-04-29 23:59"
+    }
+  },
+  {
+    "id": "158",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "53",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-30 16:00",
+      "end": "2025-04-30 23:59"
+    }
+  },
+  {
+    "id": "159",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "54",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-01 16:00",
+      "end": "2025-05-01 23:59"
+    }
+  },
+  {
+    "id": "160",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "55",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-02 16:00",
+      "end": "2025-05-02 23:59"
+    }
+  },
+  {
+    "id": "161",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "56",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-03 16:00",
+      "end": "2025-05-03 23:59"
+    }
+  },
+  {
+    "id": "162",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "57",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-04 16:00",
+      "end": "2025-05-04 23:59"
+    }
+  },
+  {
+    "id": "163",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "58",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-28 18:00",
+      "end": "2025-04-28 22:00"
+    }
+  },
+  {
+    "id": "164",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "59",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-29 18:00",
+      "end": "2025-04-29 22:00"
+    }
+  },
+  {
+    "id": "165",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "60",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-04-30 18:00",
+      "end": "2025-04-30 22:00"
+    }
+  },
+  {
+    "id": "166",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "61",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-01 18:00",
+      "end": "2025-05-01 22:00"
+    }
+  },
+  {
+    "id": "167",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "62",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-28 10:00",
+      "end": "2025-04-28 18:00"
+    }
+  },
+  {
+    "id": "168",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "63",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-29 10:00",
+      "end": "2025-04-29 18:00"
+    }
+  },
+  {
+    "id": "169",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "64",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-04-30 10:00",
+      "end": "2025-04-30 18:00"
+    }
+  },
+  {
+    "id": "170",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "65",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-01 10:00",
+      "end": "2025-05-01 18:00"
+    }
+  },
+  {
+    "id": "171",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "66",
+      "shift_type": "G",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-02 10:00",
+      "end": "2025-05-02 18:00"
+    }
+  },
+  {
+    "id": "172",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "67",
+      "shift_type": "G",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-03 10:00",
+      "end": "2025-05-03 18:00"
+    }
+  },
+  {
+    "id": "173",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 18:59:08",
+    "details": {
+      "shift_id": "68",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-04 10:00",
+      "end": "2025-05-04 18:00"
+    }
+  },
+  {
+    "id": "174",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "69",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-05 00:01",
+      "end": "2025-05-05 08:00"
+    }
+  },
+  {
+    "id": "175",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "70",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-06 00:01",
+      "end": "2025-05-06 08:00"
+    }
+  },
+  {
+    "id": "176",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "71",
+      "shift_type": "A1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-07 00:01",
+      "end": "2025-05-07 08:00"
+    }
+  },
+  {
+    "id": "177",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "72",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-08 00:01",
+      "end": "2025-05-08 08:00"
+    }
+  },
+  {
+    "id": "178",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "73",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-09 00:01",
+      "end": "2025-05-09 08:00"
+    }
+  },
+  {
+    "id": "179",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "74",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-10 00:01",
+      "end": "2025-05-10 08:00"
+    }
+  },
+  {
+    "id": "180",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "75",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-11 00:01",
+      "end": "2025-05-11 08:00"
+    }
+  },
+  {
+    "id": "181",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "76",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-05 06:00",
+      "end": "2025-05-05 14:00"
+    }
+  },
+  {
+    "id": "182",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "77",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-06 06:00",
+      "end": "2025-05-06 14:00"
+    }
+  },
+  {
+    "id": "183",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "78",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-07 06:00",
+      "end": "2025-05-07 14:00"
+    }
+  },
+  {
+    "id": "184",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "79",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-08 06:00",
+      "end": "2025-05-08 14:00"
+    }
+  },
+  {
+    "id": "185",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "80",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-09 06:00",
+      "end": "2025-05-09 14:00"
+    }
+  },
+  {
+    "id": "186",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "81",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-10 06:00",
+      "end": "2025-05-10 14:00"
+    }
+  },
+  {
+    "id": "187",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "82",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-11 06:00",
+      "end": "2025-05-11 14:00"
+    }
+  },
+  {
+    "id": "188",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "83",
+      "shift_type": "B1",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-06 14:00",
+      "end": "2025-05-06 22:00"
+    }
+  },
+  {
+    "id": "189",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "84",
+      "shift_type": "B1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-09 14:00",
+      "end": "2025-05-09 22:00"
+    }
+  },
+  {
+    "id": "190",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "85",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-05 16:00",
+      "end": "2025-05-05 23:59"
+    }
+  },
+  {
+    "id": "191",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "86",
+      "shift_type": "B2",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-06 16:00",
+      "end": "2025-05-06 23:59"
+    }
+  },
+  {
+    "id": "192",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "87",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-07 16:00",
+      "end": "2025-05-07 23:59"
+    }
+  },
+  {
+    "id": "193",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "88",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-08 16:00",
+      "end": "2025-05-08 23:59"
+    }
+  },
+  {
+    "id": "194",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "89",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-09 16:00",
+      "end": "2025-05-09 23:59"
+    }
+  },
+  {
+    "id": "195",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "90",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-10 16:00",
+      "end": "2025-05-10 23:59"
+    }
+  },
+  {
+    "id": "196",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "91",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-11 16:00",
+      "end": "2025-05-11 23:59"
+    }
+  },
+  {
+    "id": "197",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "92",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-05 18:00",
+      "end": "2025-05-05 22:00"
+    }
+  },
+  {
+    "id": "198",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "93",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-06 18:00",
+      "end": "2025-05-06 22:00"
+    }
+  },
+  {
+    "id": "199",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "94",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-07 18:00",
+      "end": "2025-05-07 22:00"
+    }
+  },
+  {
+    "id": "200",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "95",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-08 18:00",
+      "end": "2025-05-08 22:00"
+    }
+  },
+  {
+    "id": "201",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "96",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-05 10:00",
+      "end": "2025-05-05 18:00"
+    }
+  },
+  {
+    "id": "202",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "97",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-06 10:00",
+      "end": "2025-05-06 18:00"
+    }
+  },
+  {
+    "id": "203",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "98",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-07 10:00",
+      "end": "2025-05-07 18:00"
+    }
+  },
+  {
+    "id": "204",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "99",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-08 10:00",
+      "end": "2025-05-08 18:00"
+    }
+  },
+  {
+    "id": "205",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "100",
+      "shift_type": "G",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-09 10:00",
+      "end": "2025-05-09 18:00"
+    }
+  },
+  {
+    "id": "206",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "101",
+      "shift_type": "G",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-10 10:00",
+      "end": "2025-05-10 18:00"
+    }
+  },
+  {
+    "id": "207",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:19",
+    "details": {
+      "shift_id": "102",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-11 10:00",
+      "end": "2025-05-11 18:00"
+    }
+  },
+  {
+    "id": "208",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "69",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-05 00:01",
+      "end": "2025-05-05 08:00"
+    }
+  },
+  {
+    "id": "209",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "70",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-06 00:01",
+      "end": "2025-05-06 08:00"
+    }
+  },
+  {
+    "id": "210",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "71",
+      "shift_type": "A1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-07 00:01",
+      "end": "2025-05-07 08:00"
+    }
+  },
+  {
+    "id": "211",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "72",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-08 00:01",
+      "end": "2025-05-08 08:00"
+    }
+  },
+  {
+    "id": "212",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "73",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-09 00:01",
+      "end": "2025-05-09 08:00"
+    }
+  },
+  {
+    "id": "213",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "74",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-10 00:01",
+      "end": "2025-05-10 08:00"
+    }
+  },
+  {
+    "id": "214",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "75",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-11 00:01",
+      "end": "2025-05-11 08:00"
+    }
+  },
+  {
+    "id": "215",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "76",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-05 06:00",
+      "end": "2025-05-05 14:00"
+    }
+  },
+  {
+    "id": "216",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "77",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-06 06:00",
+      "end": "2025-05-06 14:00"
+    }
+  },
+  {
+    "id": "217",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "78",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-07 06:00",
+      "end": "2025-05-07 14:00"
+    }
+  },
+  {
+    "id": "218",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "79",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-08 06:00",
+      "end": "2025-05-08 14:00"
+    }
+  },
+  {
+    "id": "219",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "80",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-09 06:00",
+      "end": "2025-05-09 14:00"
+    }
+  },
+  {
+    "id": "220",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "81",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-10 06:00",
+      "end": "2025-05-10 14:00"
+    }
+  },
+  {
+    "id": "221",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "82",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-11 06:00",
+      "end": "2025-05-11 14:00"
+    }
+  },
+  {
+    "id": "222",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "83",
+      "shift_type": "B1",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-06 14:00",
+      "end": "2025-05-06 22:00"
+    }
+  },
+  {
+    "id": "223",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "84",
+      "shift_type": "B1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-09 14:00",
+      "end": "2025-05-09 22:00"
+    }
+  },
+  {
+    "id": "224",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "85",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-05 16:00",
+      "end": "2025-05-05 23:59"
+    }
+  },
+  {
+    "id": "225",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "86",
+      "shift_type": "B2",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-06 16:00",
+      "end": "2025-05-06 23:59"
+    }
+  },
+  {
+    "id": "226",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "87",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-07 16:00",
+      "end": "2025-05-07 23:59"
+    }
+  },
+  {
+    "id": "227",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "88",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-08 16:00",
+      "end": "2025-05-08 23:59"
+    }
+  },
+  {
+    "id": "228",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "89",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-09 16:00",
+      "end": "2025-05-09 23:59"
+    }
+  },
+  {
+    "id": "229",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "90",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-10 16:00",
+      "end": "2025-05-10 23:59"
+    }
+  },
+  {
+    "id": "230",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "91",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-11 16:00",
+      "end": "2025-05-11 23:59"
+    }
+  },
+  {
+    "id": "231",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "92",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-05 18:00",
+      "end": "2025-05-05 22:00"
+    }
+  },
+  {
+    "id": "232",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "93",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-06 18:00",
+      "end": "2025-05-06 22:00"
+    }
+  },
+  {
+    "id": "233",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "94",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-07 18:00",
+      "end": "2025-05-07 22:00"
+    }
+  },
+  {
+    "id": "234",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "95",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-08 18:00",
+      "end": "2025-05-08 22:00"
+    }
+  },
+  {
+    "id": "235",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "96",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-05 10:00",
+      "end": "2025-05-05 18:00"
+    }
+  },
+  {
+    "id": "236",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "97",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-06 10:00",
+      "end": "2025-05-06 18:00"
+    }
+  },
+  {
+    "id": "237",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "98",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-07 10:00",
+      "end": "2025-05-07 18:00"
+    }
+  },
+  {
+    "id": "238",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:27",
+    "details": {
+      "shift_id": "99",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-08 10:00",
+      "end": "2025-05-08 18:00"
+    }
+  },
+  {
+    "id": "239",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:28",
+    "details": {
+      "shift_id": "100",
+      "shift_type": "G",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-09 10:00",
+      "end": "2025-05-09 18:00"
+    }
+  },
+  {
+    "id": "240",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:28",
+    "details": {
+      "shift_id": "101",
+      "shift_type": "G",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-10 10:00",
+      "end": "2025-05-10 18:00"
+    }
+  },
+  {
+    "id": "241",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:28",
+    "details": {
+      "shift_id": "102",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-11 10:00",
+      "end": "2025-05-11 18:00"
+    }
+  },
+  {
+    "id": "242",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:34",
+    "details": {
+      "shift_id": "103",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-12 00:01",
+      "end": "2025-05-12 08:00"
+    }
+  },
+  {
+    "id": "243",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "104",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-13 00:01",
+      "end": "2025-05-13 08:00"
+    }
+  },
+  {
+    "id": "244",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "105",
+      "shift_type": "A1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-14 00:01",
+      "end": "2025-05-14 08:00"
+    }
+  },
+  {
+    "id": "245",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "106",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-15 00:01",
+      "end": "2025-05-15 08:00"
+    }
+  },
+  {
+    "id": "246",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "107",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-16 00:01",
+      "end": "2025-05-16 08:00"
+    }
+  },
+  {
+    "id": "247",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "108",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-17 00:01",
+      "end": "2025-05-17 08:00"
+    }
+  },
+  {
+    "id": "248",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "109",
+      "shift_type": "A1",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-18 00:01",
+      "end": "2025-05-18 08:00"
+    }
+  },
+  {
+    "id": "249",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "110",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-12 06:00",
+      "end": "2025-05-12 14:00"
+    }
+  },
+  {
+    "id": "250",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "111",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-13 06:00",
+      "end": "2025-05-13 14:00"
+    }
+  },
+  {
+    "id": "251",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "112",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-14 06:00",
+      "end": "2025-05-14 14:00"
+    }
+  },
+  {
+    "id": "252",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "113",
+      "shift_type": "A3",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-15 06:00",
+      "end": "2025-05-15 14:00"
+    }
+  },
+  {
+    "id": "253",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "114",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-16 06:00",
+      "end": "2025-05-16 14:00"
+    }
+  },
+  {
+    "id": "254",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "115",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-17 06:00",
+      "end": "2025-05-17 14:00"
+    }
+  },
+  {
+    "id": "255",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "116",
+      "shift_type": "A3",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-18 06:00",
+      "end": "2025-05-18 14:00"
+    }
+  },
+  {
+    "id": "256",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "117",
+      "shift_type": "B1",
+      "caregiver_id": "6",
+      "caregiver_name": "MariaH",
+      "start": "2025-05-13 14:00",
+      "end": "2025-05-13 22:00"
+    }
+  },
+  {
+    "id": "257",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "118",
+      "shift_type": "B1",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-16 14:00",
+      "end": "2025-05-16 22:00"
+    }
+  },
+  {
+    "id": "258",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "119",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-12 16:00",
+      "end": "2025-05-12 23:59"
+    }
+  },
+  {
+    "id": "259",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "120",
+      "shift_type": "B2",
+      "caregiver_id": "3",
+      "caregiver_name": "Amanda",
+      "start": "2025-05-13 16:00",
+      "end": "2025-05-13 23:59"
+    }
+  },
+  {
+    "id": "260",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "121",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-14 16:00",
+      "end": "2025-05-14 23:59"
+    }
+  },
+  {
+    "id": "261",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "122",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-15 16:00",
+      "end": "2025-05-15 23:59"
+    }
+  },
+  {
+    "id": "262",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "123",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-16 16:00",
+      "end": "2025-05-16 23:59"
+    }
+  },
+  {
+    "id": "263",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "124",
+      "shift_type": "B2",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-05-17 16:00",
+      "end": "2025-05-17 23:59"
+    }
+  },
+  {
+    "id": "264",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "125",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-18 16:00",
+      "end": "2025-05-18 23:59"
+    }
+  },
+  {
+    "id": "265",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "126",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-12 18:00",
+      "end": "2025-05-12 22:00"
+    }
+  },
+  {
+    "id": "266",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "127",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-13 18:00",
+      "end": "2025-05-13 22:00"
+    }
+  },
+  {
+    "id": "267",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "128",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-14 18:00",
+      "end": "2025-05-14 22:00"
+    }
+  },
+  {
+    "id": "268",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "129",
+      "shift_type": "B3",
+      "caregiver_id": "8",
+      "caregiver_name": "Shyala",
+      "start": "2025-05-15 18:00",
+      "end": "2025-05-15 22:00"
+    }
+  },
+  {
+    "id": "269",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "130",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-12 10:00",
+      "end": "2025-05-12 18:00"
+    }
+  },
+  {
+    "id": "270",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "131",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-13 10:00",
+      "end": "2025-05-13 18:00"
+    }
+  },
+  {
+    "id": "271",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "132",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-14 10:00",
+      "end": "2025-05-14 18:00"
+    }
+  },
+  {
+    "id": "272",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "133",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-15 10:00",
+      "end": "2025-05-15 18:00"
+    }
+  },
+  {
+    "id": "273",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "134",
+      "shift_type": "G",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-05-16 10:00",
+      "end": "2025-05-16 18:00"
+    }
+  },
+  {
+    "id": "274",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "135",
+      "shift_type": "G",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-05-17 10:00",
+      "end": "2025-05-17 18:00"
+    }
+  },
+  {
+    "id": "275",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-17 19:03:35",
+    "details": {
+      "shift_id": "136",
+      "shift_type": "G",
+      "caregiver_id": "7",
+      "caregiver_name": "Tae",
+      "start": "2025-05-18 10:00",
+      "end": "2025-05-18 18:00"
+    }
+  },
+  {
+    "id": "276",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:08:54",
+    "details": {
+      "shift_id": "137",
+      "shift_type": "A3",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-05-25 06:00",
+      "end": "2025-05-25 14:00"
+    }
+  },
+  {
+    "id": "277",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:08:54",
+    "details": {
+      "shift_id": "138",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-05-19 14:00",
+      "end": "2025-05-19 22:00"
+    }
+  },
+  {
+    "id": "278",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:08:54",
+    "details": {
+      "shift_id": "139",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-05-20 14:00",
+      "end": "2025-05-20 22:00"
+    }
+  },
+  {
+    "id": "279",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:08:54",
+    "details": {
+      "shift_id": "140",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-05-21 14:00",
+      "end": "2025-05-21 22:00"
+    }
+  },
+  {
+    "id": "280",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:09:09",
+    "details": {
+      "shift_id": "141",
+      "shift_type": "A3",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-06-01 06:00",
+      "end": "2025-06-01 14:00"
+    }
+  },
+  {
+    "id": "281",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:09:09",
+    "details": {
+      "shift_id": "142",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-05-26 14:00",
+      "end": "2025-05-26 22:00"
+    }
+  },
+  {
+    "id": "282",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:09:09",
+    "details": {
+      "shift_id": "143",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-05-27 14:00",
+      "end": "2025-05-27 22:00"
+    }
+  },
+  {
+    "id": "283",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:09:09",
+    "details": {
+      "shift_id": "144",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-05-28 14:00",
+      "end": "2025-05-28 22:00"
+    }
+  },
+  {
+    "id": "284",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:14:46",
+    "details": {
+      "shift_id": "145",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-14 00:01",
+      "end": "2025-04-14 08:00"
+    }
+  },
+  {
+    "id": "285",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:42:32",
+    "details": {
+      "shift_id": "145",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-14 00:01",
+      "end": "2025-04-14 08:00"
+    }
+  },
+  {
+    "id": "286",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 16:42:36",
+    "details": {
+      "shift_id": "145",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "caregiver_name": "Kisha",
+      "start": "2025-04-14 00:01",
+      "end": "2025-04-14 08:00"
+    }
+  },
+  {
+    "id": "287",
+    "type": "Shift Deleted",
+    "user": "system",
+    "timestamp": "2025-04-18 17:01:40",
+    "details": {
+      "shift_id": "145",
+      "shift_type": "A1",
+      "caregiver_id": "1",
+      "start": "2025-04-14 00:01",
+      "end": "2025-04-14 08:00"
+    }
+  },
+  {
+    "id": "288",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 17:01:57",
+    "details": {
+      "shift_id": "145",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-14 00:01",
+      "end": "2025-04-14 08:00"
+    }
+  },
+  {
+    "id": "289",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 17:02:08",
+    "details": {
+      "shift_id": "146",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-19 16:00",
+      "end": "2025-04-19 23:59"
+    }
+  },
+  {
+    "id": "290",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 17:02:34",
+    "details": {
+      "shift_id": "145",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "caregiver_name": "MariaB",
+      "start": "2025-04-14 00:01",
+      "end": "2025-04-14 08:00"
+    }
+  },
+  {
+    "id": "291",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 17:02:34",
+    "details": {
+      "shift_id": "146",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "caregiver_name": "Michelle",
+      "start": "2025-04-19 16:00",
+      "end": "2025-04-19 23:59"
+    }
+  },
+  {
+    "id": "292",
+    "type": "Shift Deleted",
+    "user": "system",
+    "timestamp": "2025-04-18 17:02:47",
+    "details": {
+      "shift_id": "146",
+      "shift_type": "B2",
+      "caregiver_id": "5",
+      "start": "2025-04-19 16:00",
+      "end": "2025-04-19 23:59"
+    }
+  },
+  {
+    "id": "293",
+    "type": "Shift Deleted",
+    "user": "system",
+    "timestamp": "2025-04-18 17:02:51",
+    "details": {
+      "shift_id": "145",
+      "shift_type": "A1",
+      "caregiver_id": "2",
+      "start": "2025-04-14 00:01",
+      "end": "2025-04-14 08:00"
+    }
+  },
+  {
+    "id": "294",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 17:03:19",
+    "details": {
+      "shift_id": "145",
+      "shift_type": "A3",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-04-20 06:00",
+      "end": "2025-04-20 14:00"
+    }
+  },
+  {
+    "id": "295",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 17:03:19",
+    "details": {
+      "shift_id": "146",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-04-14 14:00",
+      "end": "2025-04-14 22:00"
+    }
+  },
+  {
+    "id": "296",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 17:03:19",
+    "details": {
+      "shift_id": "147",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-04-15 14:00",
+      "end": "2025-04-15 22:00"
+    }
+  },
+  {
+    "id": "297",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-18 17:03:19",
+    "details": {
+      "shift_id": "148",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-04-16 14:00",
+      "end": "2025-04-16 22:00"
+    }
+  },
+  {
+    "id": "298",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-19 06:32:28",
+    "details": {
+      "shift_id": "147",
+      "shift_type": "A3",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-04-28 06:00",
+      "end": "2025-04-28 14:00"
+    }
+  },
+  {
+    "id": "299",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-19 06:32:28",
+    "details": {
+      "shift_id": "148",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-04-22 14:00",
+      "end": "2025-04-22 22:00"
+    }
+  },
+  {
+    "id": "300",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-19 06:32:28",
+    "details": {
+      "shift_id": "149",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-04-23 14:00",
+      "end": "2025-04-23 22:00"
+    }
+  },
+  {
+    "id": "301",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-19 06:32:28",
+    "details": {
+      "shift_id": "150",
+      "shift_type": "B1",
+      "caregiver_id": "4",
+      "caregiver_name": "Fatima",
+      "start": "2025-04-24 14:00",
+      "end": "2025-04-24 22:00"
+    }
+  },
+  {
+    "id": "302",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-19 06:32:28",
+    "details": {
+      "shift_id": "151",
+      "shift_type": "B1",
+      "caregiver_id": "10",
+      "caregiver_name": "CG9",
+      "start": "2025-04-27 14:00",
+      "end": "2025-04-27 22:00"
+    }
+  },
+  {
+    "id": "303",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-19 06:32:29",
+    "details": {
+      "shift_id": "152",
+      "shift_type": "B1",
+      "caregiver_id": "10",
+      "caregiver_name": "CG9",
+      "start": "2025-04-28 14:00",
+      "end": "2025-04-28 22:00"
+    }
+  },
+  {
+    "id": "304",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-19 06:32:29",
+    "details": {
+      "shift_id": "153",
+      "shift_type": "G",
+      "caregiver_id": "9",
+      "caregiver_name": "CG8",
+      "start": "2025-04-27 10:00",
+      "end": "2025-04-27 18:00"
+    }
+  },
+  {
+    "id": "305",
+    "type": "Shift Added",
+    "user": "system",
+    "timestamp": "2025-04-19 06:32:29",
+    "details": {
+      "shift_id": "154",
+      "shift_type": "G",
+      "caregiver_id": "9",
+      "caregiver_name": "CG8",
+      "start": "2025-04-28 10:00",
+      "end": "2025-04-28 18:00"
+    }
+  }
+]

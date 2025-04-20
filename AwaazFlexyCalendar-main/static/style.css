@@ -1,0 +1,391 @@
+/* Mobile-first styles */
+.schedule-container {
+    padding: 10px;
+}
+
+.table-responsive {
+    margin-bottom: 20px;
+}
+
+.form-select {
+    font-size: 14px;
+    padding: 4px;
+}
+
+/* Custom styles for the schedule table */
+.table th {
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f8f9fa;
+}
+
+.table td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+/* Calendar styles */
+#calendar {
+    margin-top: 20px;
+    height: calc(100vh - 200px);
+}
+
+.fc-event {
+    cursor: pointer;
+    border: none;
+    color: white !important;
+    border-radius: 4px;
+}
+
+.fc-daygrid-event {
+    margin: 2px 0;
+    padding: 4px 6px;
+    font-size: 0.85em;
+    border-radius: 4px;
+    border: none;
+}
+
+/* Event title and time formatting */
+.fc-event-title {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.fc-event-time {
+    font-size: 0.8em;
+    opacity: 0.9;
+    display: block;
+}
+
+.shift-type {
+    font-size: 0.8em;
+    opacity: 0.9;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0px 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+}
+
+.fc-daygrid-day-number {
+    color: #333;
+    font-weight: 500;
+}
+
+.fc-col-header-cell {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+}
+
+.fc-daygrid-day {
+    background-color: white;
+}
+
+.fc-day-today {
+    background-color: #f0f9ff !important;
+}
+
+.fc-timegrid-slot {
+    height: 40px !important;
+}
+
+.fc-toolbar-title {
+    font-size: 1.2rem !important;
+    color: #333;
+}
+
+.fc-button {
+    background-color: #3788d8 !important;
+    border-color: #2c6aa0 !important;
+}
+
+.fc-button:hover {
+    background-color: #2c6aa0 !important;
+    border-color: #215380 !important;
+}
+
+.fc-button-active {
+    background-color: #215380 !important;
+    border-color: #1a4265 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table th, .table td {
+        font-size: 12px;
+        padding: 3px;
+    }
+    
+    .form-select {
+        font-size: 12px;
+        padding: 2px;
+    }
+
+    .fc-toolbar {
+        flex-direction: column;
+    }
+    
+    .fc-toolbar-title {
+        font-size: 1rem !important;
+        margin: 10px 0;
+    }
+    
+    .fc-button {
+        padding: 0.2rem 0.4rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .fc-daygrid-event {
+        font-size: 0.75em;
+        padding: 2px 4px;
+    }
+
+    .shift-type {
+        font-size: 0.7em;
+        margin-left: 2px;
+    }
+}
+
+/* Caregiver hours cards */
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Highlight shifts that exceed caregiver hours */
+.shift-warning {
+    background-color: #fff3cd;
+}
+
+/* Highlight overlapping shifts */
+.shift-overlap {
+    background-color: #f8d7da;
+}
+
+/* Calendar Styles */
+.time-column {
+    width: 80px;
+    background-color: #f8f9fa;
+    font-weight: 500;
+    font-size: 0.85em;
+    text-align: left;
+    padding: 8px !important;
+    position: sticky;
+    left: 0;
+    z-index: 2;
+}
+
+/* Hourly View */
+.hourly-grid th, .hourly-grid td {
+    border: 1px solid #dee2e6;
+    padding: 0;
+    height: 50px;
+    position: relative;
+}
+
+.date-header {
+    text-align: center;
+    font-size: 0.85em;
+    font-weight: 500;
+    padding: 8px 4px !important;
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.date-header-day {
+    font-weight: 600;
+}
+
+.date-header-date {
+    font-size: 0.85em;
+    color: #6c757d;
+}
+
+.shift-cell {
+    padding: 0 !important;
+}
+
+.shift-item {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 0.7em;
+    line-height: 1;
+    padding: 3px 4px;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: 1;
+    text-shadow: 0 0 2px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shift-item:hover {
+    z-index: 10;
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.shift-cell.weekend {
+    background-color: #f8f9fa30;
+}
+
+.shift-cell.today {
+    background-color: #fff3cd30;
+}
+
+.shift-item .initials {
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+/* Weekly View */
+.weekly-grid th, .weekly-grid td {
+    border: 1px solid #dee2e6;
+    padding: 0;
+    height: 50px;
+    position: relative;
+}
+
+.day-header {
+    text-align: center;
+    font-size: 0.85em;
+    font-weight: 500;
+    padding: 8px 4px !important;
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.day-header.weekend {
+    background-color: #f8f9fa70;
+}
+
+.day-header.today {
+    background-color: #fff3cd50;
+}
+
+.day-header-name {
+    font-weight: 600;
+}
+
+.day-header-date {
+    font-size: 0.85em;
+    color: #6c757d;
+}
+
+/* Monthly View */
+.monthly-grid th, .monthly-grid td {
+    border: 1px solid #dee2e6;
+    padding: 0;
+    height: 100px;
+    position: relative;
+}
+
+.day-cell {
+    padding: 4px !important;
+    vertical-align: top;
+}
+
+.day-cell.weekend {
+    background-color: #f8f9fa30;
+}
+
+.day-cell.today {
+    background-color: #fff3cd30;
+}
+
+.day-cell.other-month {
+    background-color: #f8f9fa60;
+    color: #999;
+}
+
+.day-number {
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.shift-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.shift-badge {
+    background-color: #3788d8;
+    color: white;
+    font-size: 0.7em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+.shift-badge:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.more-shifts {
+    background-color: #6c757d;
+    text-align: center;
+}
+
+/* Legend */
+.legend {
+    margin-top: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 0.8em;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    border-radius: 2px;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+} 

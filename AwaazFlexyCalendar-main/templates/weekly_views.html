@@ -1,0 +1,518 @@
+{% extends "base.html" %}
+
+{% block title %}Weekly Schedule Views{% endblock %}
+
+{% block extra_css %}
+<style>
+    .view-selector {
+        margin-bottom: 20px;
+    }
+    .week-navigation {
+        margin-bottom: 20px;
+    }
+    .schedule-container {
+        margin-top: 20px;
+    }
+    /* Hourly View Styles */
+    .hourly-view {
+        margin-top: 20px;
+    }
+    .hourly-view .time-column {
+        width: 120px;
+        background-color: #f8f9fa;
+        font-weight: 500;
+        font-size: 0.9em;
+        text-align: right;
+        padding-right: 10px;
+    }
+    .hourly-view .shift-cell {
+        height: 40px;
+        border: 1px solid #dee2e6;
+        padding: 4px;
+        text-align: center;
+        font-weight: 500;
+    }
+    .hourly-view th {
+        text-align: center;
+        background-color: #f8f9fa;
+        font-weight: 600;
+    }
+    .shift-yellow {
+        background-color: #ffc107 !important;
+    }
+    .shift-green {
+        background-color: #28a745 !important;
+    }
+    /* Caregiver View Styles */
+    .caregiver-view .day-column {
+        width: 100px;
+        background-color: #f8f9fa;
+        font-weight: 500;
+    }
+    .caregiver-view .shift-cell {
+        min-height: 80px;
+        border: 1px solid #dee2e6;
+        padding: 8px;
+    }
+    .caregiver-view .shift-block {
+        padding: 6px;
+        border-radius: 4px;
+        margin: 4px 0;
+    }
+    /* Grant View Styles */
+    .grant-view .day-row {
+        background-color: #f8f9fa;
+        font-weight: 500;
+    }
+    .grant-view .shift-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 8px;
+    }
+    .grant-view .shift-block {
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+    .shift-type-label {
+        font-weight: 600;
+        font-size: 0.8em;
+        opacity: 0.8;
+    }
+    .caregiver-name {
+        font-weight: 500;
+    }
+    .shift-time {
+        font-size: 0.8em;
+        opacity: 0.7;
+    }
+    /* Caregiver Legend Styles */
+    .caregiver-legend {
+        background: white;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .caregiver-legend h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    .legend-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+    }
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .legend-code {
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 4px;
+        color: white;
+        min-width: 35px;
+        text-align: center;
+    }
+    .legend-name {
+        font-size: 0.9rem;
+    }
+    .code-black { background-color: #343a40; }
+    .code-gray { background-color: #6c757d; }
+    .code-blue { background-color: #0d6efd; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h2>Weekly Schedule Views</h2>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <div class="week-navigation btn-group">
+                <button class="btn btn-outline-secondary" onclick="previousWeek()">Previous Week</button>
+                <button class="btn btn-outline-secondary" onclick="nextWeek()">Next Week</button>
+            </div>
+            <button id="exportBtn" class="btn btn-outline-primary ms-2">Export ICS</button>
+            <span id="weekDisplay" class="ms-3 fw-bold"></span>
+        </div>
+    </div>
+
+    <div class="view-selector">
+        <div class="btn-group" role="group">
+            <input type="radio" class="btn-check" name="viewType" id="hourlyView" value="hourly" checked>
+            <label class="btn btn-outline-primary" for="hourlyView">Hourly View</label>
+
+            <input type="radio" class="btn-check" name="viewType" id="caregiverView" value="caregiver">
+            <label class="btn btn-outline-primary" for="caregiverView">Caregiver View</label>
+
+            <input type="radio" class="btn-check" name="viewType" id="grantView" value="grant">
+            <label class="btn btn-outline-primary" for="grantView">Grant View</label>
+        </div>
+    </div>
+
+    <div id="scheduleContainer" class="schedule-container">
+        <!-- Views will be dynamically loaded here -->
+    </div>
+
+    <div id="loadingSpinner" class="position-fixed top-50 start-50 translate-middle d-none">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const SHIFT_DEFINITIONS = {{ shift_definitions|tojson|safe }};
+    let currentWeekStart = null;
+    let currentView = 'hourly';
+
+    function initializeSchedule() {
+        currentWeekStart = getMonday(new Date());
+        updateWeekDisplay();
+        loadSchedule();
+
+        // Add view type change listener
+        document.querySelectorAll('input[name="viewType"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                currentView = e.target.value;
+                loadSchedule();
+            });
+        });
+
+        // Add export button listener
+        document.getElementById('exportBtn').addEventListener('click', function() {
+            const startDate = currentWeekStart.toISOString().split('T')[0];
+            const endDate = new Date(currentWeekStart);
+            endDate.setDate(endDate.getDate() + 6);
+            const endDateStr = endDate.toISOString().split('T')[0];
+            
+            window.open(`/api/shifts/download-ics?start=${startDate}&end=${endDateStr}`, '_blank');
+        });
+    }
+
+    function getMonday(date) {
+        const d = new Date(date);
+        const day = d.getDay();
+        const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+        return new Date(d.setDate(diff));
+    }
+
+    function formatDate(date) {
+        return date.toLocaleDateString('en-US', { 
+            weekday: 'short',
+            month: 'numeric',
+            day: 'numeric'
+        });
+    }
+
+    function formatTime(time) {
+        return time.slice(0, 5);
+    }
+
+    function updateWeekDisplay() {
+        const weekDisplay = document.getElementById('weekDisplay');
+        const weekEnd = new Date(currentWeekStart);
+        weekEnd.setDate(currentWeekStart.getDate() + 6);
+        weekDisplay.textContent = `${formatDate(currentWeekStart)} - ${formatDate(weekEnd)}`;
+    }
+
+    function previousWeek() {
+        currentWeekStart.setDate(currentWeekStart.getDate() - 7);
+        updateWeekDisplay();
+        loadSchedule();
+    }
+
+    function nextWeek() {
+        currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+        updateWeekDisplay();
+        loadSchedule();
+    }
+
+    function showLoading(show) {
+        const spinner = document.getElementById('loadingSpinner');
+        if (show) {
+            spinner.classList.remove('d-none');
+        } else {
+            spinner.classList.add('d-none');
+        }
+    }
+
+    function loadSchedule() {
+        showLoading(true);
+        const startDate = currentWeekStart.toISOString().split('T')[0];
+        const endDate = new Date(currentWeekStart);
+        endDate.setDate(endDate.getDate() + 6);
+
+        fetch(`/api/shifts?start=${startDate}&end=${endDate.toISOString().split('T')[0]}`)
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to fetch shifts');
+                return response.json();
+            })
+            .then(shifts => {
+                switch(currentView) {
+                    case 'hourly':
+                        renderHourlyView(shifts);
+                        break;
+                    case 'caregiver':
+                        renderCaregiverView(shifts);
+                        break;
+                    case 'grant':
+                        renderGrantView(shifts);
+                        break;
+                }
+            })
+            .catch(error => {
+                console.error('Error loading shifts:', error);
+                alert('Failed to load schedule');
+            })
+            .finally(() => {
+                showLoading(false);
+            });
+    }
+
+    function renderHourlyView(shifts) {
+        const container = document.getElementById('scheduleContainer');
+        let html = '<h2>Hourly Coverage</h2>';
+        
+        // Add Caregiver Legend
+        html += `
+        <div class="caregiver-legend">
+            <h3>Caregiver Legend</h3>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <span class="legend-code code-black">KA</span>
+                    <span class="legend-name">Kisha</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-black">MB</span>
+                    <span class="legend-name">MariaB</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-black">AA</span>
+                    <span class="legend-name">Amanda</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-gray">FA</span>
+                    <span class="legend-name">Fatima</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-gray">ME</span>
+                    <span class="legend-name">Michelle</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-gray">MH</span>
+                    <span class="legend-name">MariaH</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-gray">TE</span>
+                    <span class="legend-name">Tae</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-blue">SA</span>
+                    <span class="legend-name">Shyala</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-blue">C8</span>
+                    <span class="legend-name">CG8</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-blue">C9</span>
+                    <span class="legend-name">CG9</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-blue">C0</span>
+                    <span class="legend-name">CG10</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-code code-blue">C1</span>
+                    <span class="legend-name">CG11</span>
+                </div>
+            </div>
+        </div>`;
+
+        // Add the table
+        html += '<div class="table-responsive hourly-view">';
+        html += '<table class="table table-bordered">';
+        
+        // Header
+        html += '<thead><tr><th class="time-column">Hour</th>';
+        for (let i = 0; i < 7; i++) {
+            const date = new Date(currentWeekStart);
+            date.setDate(date.getDate() + i);
+            const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+            const dateStr = date.toLocaleDateString('en-US', { 
+                month: 'numeric',
+                day: 'numeric'
+            });
+            html += `<th>${dayName}<br>${dateStr}</th>`;
+        }
+        html += '</tr></thead><tbody>';
+
+        // Time slots in 2-hour increments
+        for (let hour = 0; hour < 24; hour += 2) {
+            const startHour = hour.toString().padStart(2, '0');
+            const endHour = (hour + 2).toString().padStart(2, '0');
+            html += `<tr>
+                <td class="time-column">${startHour}:00 - ${endHour}:00</td>
+                ${Array(7).fill().map((_, dayIndex) => {
+                    const date = new Date(currentWeekStart);
+                    date.setDate(date.getDate() + dayIndex);
+                    const cellShifts = shifts.filter(shift => {
+                        const shiftStart = new Date(shift.start);
+                        const shiftEnd = new Date(shift.end);
+                        const slotStart = hour;
+                        const slotEnd = hour + 2;
+                        
+                        return shiftStart.getDate() === date.getDate() &&
+                               ((slotStart >= shiftStart.getHours() && slotStart < shiftEnd.getHours()) ||
+                                (slotEnd > shiftStart.getHours() && slotEnd <= shiftEnd.getHours()) ||
+                                (shiftEnd.getHours() < shiftStart.getHours() && 
+                                 (slotStart >= shiftStart.getHours() || slotEnd <= shiftEnd.getHours())));
+                    });
+
+                    // Sort shifts by type (A1, A3, B1, etc.)
+                    cellShifts.sort((a, b) => a.shift_type.localeCompare(b.shift_type));
+
+                    // Get two-letter initials for all caregivers in this cell
+                    const initials = cellShifts.map(shift => {
+                        const name = shift.caregiver_name;
+                        // Map full names to their legend codes
+                        const nameToCode = {
+                            'Kisha': 'KA',
+                            'MariaB': 'MB',
+                            'Amanda': 'AA',
+                            'Fatima': 'FA',
+                            'Michelle': 'ME',
+                            'MariaH': 'MH',
+                            'Tae': 'TE',
+                            'Shyala': 'SA',
+                            'CG8': 'C8',
+                            'CG9': 'C9',
+                            'CG10': 'C0',
+                            'CG11': 'C1'
+                        };
+                        return nameToCode[name] || name.substring(0, 2).toUpperCase();
+                    });
+
+                    // Determine cell color based on shift combination
+                    let cellClass = '';
+                    if (cellShifts.length > 1) {
+                        cellClass = 'shift-green';
+                    } else if (cellShifts.length === 1) {
+                        cellClass = 'shift-yellow';
+                    }
+
+                    return `<td class="shift-cell ${cellClass}">
+                        ${initials.join(', ')}
+                    </td>`;
+                }).join('')}
+            </tr>`;
+        }
+        
+        html += '</tbody></table></div>';
+        container.innerHTML = html;
+    }
+
+    function renderCaregiverView(shifts) {
+        const container = document.getElementById('scheduleContainer');
+        const caregivers = Array.from(new Set(shifts.map(s => s.caregiver_id)))
+            .map(id => shifts.find(s => s.caregiver_id === id))
+            .filter(Boolean);
+
+        let html = '<div class="table-responsive caregiver-view">';
+        html += '<table class="table table-bordered">';
+        
+        // Header
+        html += '<thead><tr><th class="day-column">Day</th>';
+        caregivers.forEach(caregiver => {
+            html += `<th style="background-color: ${caregiver.color}10">
+                ${caregiver.caregiver_name}
+            </th>`;
+        });
+        html += '</tr></thead><tbody>';
+
+        // Days
+        for (let i = 0; i < 7; i++) {
+            const date = new Date(currentWeekStart);
+            date.setDate(date.getDate() + i);
+            
+            html += `<tr>
+                <td class="day-column">${formatDate(date)}</td>
+                ${caregivers.map(caregiver => {
+                    const dayShifts = shifts.filter(s => 
+                        s.caregiver_id === caregiver.caregiver_id &&
+                        new Date(s.start).getDate() === date.getDate()
+                    );
+                    return `<td class="shift-cell">${
+                        dayShifts.map(shift => `
+                            <div class="shift-block" style="background-color: ${shift.color}20">
+                                <div class="shift-type-label">${shift.shift_type}</div>
+                                <div class="shift-time">
+                                    ${formatTime(shift.start.split(' ')[1])} - 
+                                    ${formatTime(shift.end.split(' ')[1])}
+                                </div>
+                            </div>
+                        `).join('')
+                    }</td>`;
+                }).join('')}
+            </tr>`;
+        }
+        
+        html += '</tbody></table></div>';
+        container.innerHTML = html;
+    }
+
+    function renderGrantView(shifts) {
+        const container = document.getElementById('scheduleContainer');
+        let html = '<div class="grant-view">';
+        
+        // Group shifts by day
+        for (let i = 0; i < 7; i++) {
+            const date = new Date(currentWeekStart);
+            date.setDate(date.getDate() + i);
+            
+            const dayShifts = shifts.filter(shift => 
+                new Date(shift.start).getDate() === date.getDate()
+            );
+            
+            html += `
+                <div class="card mb-3">
+                    <div class="card-header day-row">
+                        ${formatDate(date)}
+                    </div>
+                    <div class="card-body">
+                        <div class="shift-container">
+                            ${dayShifts.map(shift => `
+                                <div class="shift-block" style="background-color: ${shift.color}20">
+                                    <div class="shift-type-label">${shift.shift_type}</div>
+                                    <div class="caregiver-name">${shift.caregiver_name}</div>
+                                    <div class="shift-time">
+                                        ${formatTime(shift.start.split(' ')[1])} - 
+                                        ${formatTime(shift.end.split(' ')[1])}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        html += '</div>';
+        container.innerHTML = html;
+    }
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', initializeSchedule);
+</script>
+{% endblock %}

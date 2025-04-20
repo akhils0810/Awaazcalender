@@ -1,0 +1,1220 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>
+            Weekly Schedule
+            <small class="text-muted" id="template-name-display"></small>
+        </h2>
+    </div>
+    <div class="col-md-4 text-end">
+        <button type="button" class="btn btn-primary" onclick="saveAsTemplate()">
+            Save as Template
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loadTemplateModal">
+            Load Template
+        </button>
+    </div>
+</div>
+
+<!-- Caregiver Summary Table -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="card-title mb-0">Caregiver Summary</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-sm" id="caregiver-summary">
+                <thead>
+                    <tr>
+                        <th>Caregiver</th>
+                        <th>Working Days</th>
+                        <th>Days Off</th>
+                        <th>Total Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for caregiver in caregivers %}
+                    <tr data-caregiver-id="{{ caregiver.id }}">
+                        <td>
+                            <span class="badge" style="background-color: {{- caregiver.color -}}">{{ caregiver.name|getInitials }}</span>
+                            {{ caregiver.name }}
+                        </td>
+                        <td class="working-days">-</td>
+                        <td>7</td>
+                        <td>0</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr class="table-info">
+                        <th>Total</th>
+                        <th>-</th>
+                        <th>-</th>
+                        <th id="total-hours">0</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Shift Type</th>
+                {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+                <th>{{ day }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for shift_name, times in shift_definitions.items() %}
+            <tr>
+                <th>{{ shift_name }}<br>({{ times.start }}-{{ times.end }})</th>
+                {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+                <td>
+                    <select class="form-select shift-select" 
+                            data-day="{{ day }}" 
+                            data-shift="{{ shift_name }}"
+                            onchange="updateHours()">
+                        <option value="">Select</option>
+                        {% for caregiver in caregivers %}
+                        {% set name_parts = caregiver.name.split() %}
+                        {% if name_parts|length > 1 %}
+                            {% set initials = (name_parts[0][0] + name_parts[-1][-1])|upper %}
+                        {% else %}
+                            {% set initials = (name_parts[0][0] + name_parts[0][-1])|upper %}
+                        {% endif %}
+                        <option value="{{ caregiver.id }}" data-color="{{ caregiver.color }}" data-initials="{{ initials }}">
+                            {{ initials }} - {{ caregiver.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="mt-4">
+    <h3>Caregiver Hours</h3>
+    <div class="row" id="caregiver-hours">
+        {% for caregiver in caregivers %}
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ caregiver.name }}</h5>
+                    <p class="card-text">Hours: <span class="hours" data-caregiver-id="{{ caregiver.id }}">0</span> / {{ caregiver.max_hours }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="mt-4">
+    <h3>Hourly Coverage</h3>
+    <div class="row mb-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Caregiver Legend</h5>
+                    <div class="row">
+                        {% for caregiver in caregivers %}
+                        <div class="col-md-3 mb-2">
+                            <span class="badge" style="background-color: {{- caregiver.color -}}">{{ caregiver.name|getInitials }}</span>
+                            {{ caregiver.name }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Hour</th>
+                    {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+                    <th>{{ day }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody id="hourly-coverage">
+                {% for hour in range(0, 24, 2) %}
+                <tr>
+                    <td>{{ '%02d'|format(hour) }}:00 - {{ '%02d'|format(hour + 2) }}:00</td>
+                    {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+                    <td class="coverage-cell" data-day="{{ day }}" data-hour="{{ hour }}" data-hour-end="{{ hour + 2 }}">
+                        <div class="coverage-initials"></div>
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-2">
+        <small class="text-muted">
+            Cell colors indicate coverage level:
+            <span class="badge bg-danger">No coverage</span>,
+            <span class="badge bg-warning">Single coverage</span>,
+            <span class="badge bg-success">Multiple coverage</span>.
+            Initials show which caregivers are working.
+        </small>
+    </div>
+</div>
+
+<!-- Save Template Modal -->
+<div class="modal fade" id="saveTemplateModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Save Schedule Template</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="templateName" class="form-label">Template Name</label>
+                    <input type="text" class="form-control" id="templateName" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="saveTemplate()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Load Template Modal -->
+<div class="modal fade" id="loadTemplateModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Load Weekly Template</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    {% for template in templates %}
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-link text-start flex-grow-1 text-decoration-none" 
+                                onclick="loadTemplate('{{ template.id }}')">
+                            {{ template.name }}
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteTemplate('{{ template.id }}', event)">Delete</button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Manage Caregivers Modal -->
+<div class="modal fade" id="manageCaregivers" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Manage Caregivers</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <button type="button" class="btn btn-primary" onclick="showAddCaregiverForm()">
+                        Add New Caregiver
+                    </button>
+                </div>
+                <div id="addCaregiverForm" style="display: none;" class="mb-3 p-3 border rounded">
+                    <h6>Add New Caregiver</h6>
+                    <div class="mb-2">
+                        <label for="newCaregiverName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="newCaregiverName" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="newCaregiverMaxHours" class="form-label">Maximum Hours</label>
+                        <input type="number" class="form-control" id="newCaregiverMaxHours" value="40" min="0" max="168" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="newCaregiverColor" class="form-label">Color</label>
+                        <input type="color" class="form-control" id="newCaregiverColor" value="#3788d8">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="addCaregiver()">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="hideAddCaregiverForm()">Cancel</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Max Hours</th>
+                                <th>Color</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="caregiversTableBody">
+                            {% for caregiver in caregivers %}
+                            <tr data-caregiver-id="{{ caregiver.id }}">
+                                <td>
+                                    <span class="caregiver-name">{{ caregiver.name }}</span>
+                                    <input type="text" class="form-control edit-name" style="display: none;" value="{{ caregiver.name }}">
+                                </td>
+                                <td>
+                                    <span class="caregiver-hours">{{ caregiver.max_hours }}</span>
+                                    <input type="number" class="form-control edit-hours" style="display: none;" value="{{ caregiver.max_hours }}">
+                                </td>
+                                <td>
+                                    <div class="color-preview" style="background-color: {{- caregiver.color -}}; width: 30px; height: 30px; border-radius: 4px;"></div>
+                                    <input type="color" class="form-control edit-color" style="display: none;" value="{{ caregiver.color }}">
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-primary edit-btn" onclick="editCaregiver({{ caregiver.id }})">Edit</button>
+                                        <button class="btn btn-sm btn-success save-btn" style="display: none;" onclick="saveCaregiver({{ caregiver.id }})">Save</button>
+                                        <button class="btn btn-sm btn-secondary cancel-btn" style="display: none;" onclick="cancelEdit({{ caregiver.id }})">Cancel</button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteCaregiver({{ caregiver.id }})">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Export to Google Calendar Modal -->
+<div class="modal fade" id="exportGCalModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Export Schedule (ICS)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="exportForm">
+                    <div class="mb-3">
+                        <label for="exportTemplateName" class="form-label">Template Name</label>
+                        <input type="text" class="form-control" id="exportTemplateName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exportStartDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="exportStartDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exportWeeks" class="form-label">Number of Weeks</label>
+                        <input type="number" class="form-control" id="exportWeeks" min="1" max="52" value="1" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="exportToGoogleCalendar()">Export</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="app-data" 
+     data-shift-definitions='{{ shift_definitions|tojson|safe }}'
+     data-templates='{{ templates|tojson|safe }}'
+></div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+    // Get template data from DOM
+    const appData = document.getElementById('app-data');
+    const shiftDefinitions = JSON.parse(appData.dataset.shiftDefinitions);
+    const templates = JSON.parse(appData.dataset.templates);
+
+    // Add shift durations in hours
+    const SHIFT_HOURS = {
+        'A1': 8,
+        'A2': 4,  // Changed back from A3
+        'A3': 8,  // Changed back from A2
+        'G': 8,
+        'B1': 8,
+        'B2': 8,
+        'B3': 4
+    };
+
+    // Constants - keeping Monday-first order
+    const DAYS_MAP = {
+        'Monday': 0,
+        'Tuesday': 1,
+        'Wednesday': 2,
+        'Thursday': 3,
+        'Friday': 4,
+        'Saturday': 5,
+        'Sunday': 6
+    };
+
+    // Debug logging function
+    function debugLog(context, data) {
+        console.log(`[DEBUG ${context}]:`, JSON.stringify(data, null, 2));
+    }
+
+    debugLog('Initial Shift Definitions', shiftDefinitions);
+
+    // Add validation and debugging
+    function validateDayValue(day, context = '') {
+        debugLog('validateDayValue Input', { context, day, availableDays: Object.keys(DAYS_MAP) });
+        
+        // Normalize day string to handle case sensitivity
+        const normalizedDay = day.charAt(0).toUpperCase() + day.slice(1).toLowerCase();
+        const dayNumber = DAYS_MAP[normalizedDay];
+        
+        debugLog('validateDayValue Processing', {
+            originalDay: day,
+            normalizedDay,
+            dayNumber,
+            isNumber: typeof dayNumber === 'number'
+        });
+
+        if (typeof dayNumber !== 'number') {
+            console.error(`[ERROR] Invalid day value in ${context}:`, { 
+                originalDay: day,
+                normalizedDay,
+                dayNumber,
+                availableDays: Object.keys(DAYS_MAP)
+            });
+            return null;
+        }
+        return dayNumber;
+    }
+
+    // Utility functions
+    function collectShiftData() {
+        debugLog('collectShiftData Start', { message: 'Starting to collect shift data' });
+        
+        const shifts = [];
+        const selects = document.querySelectorAll('.shift-select');
+        
+        debugLog('collectShiftData Elements', { 
+            totalSelects: selects.length,
+            selectElements: Array.from(selects).map(select => ({
+                day: select.dataset.day,
+                shift: select.dataset.shift,
+                value: select.value
+            }))
+        });
+
+        selects.forEach((select, index) => {
+            if (select.value) {
+                debugLog('Processing Select', {
+                    index,
+                    day: select.dataset.day,
+                    shift: select.dataset.shift,
+                    value: select.value
+                });
+
+                const dayNumber = validateDayValue(select.dataset.day, 'collectShiftData');
+                
+                debugLog('Day Number Result', {
+                    index,
+                    originalDay: select.dataset.day,
+                    resultingDayNumber: dayNumber
+                });
+
+                if (dayNumber === null) {
+                    console.error(`[ERROR] Invalid day at index ${index}:`, select.dataset.day);
+                    return;
+                }
+                
+                const shiftData = {
+                    caregiver_id: select.value,
+                    day: dayNumber,
+                    shift_type: select.dataset.shift
+                };
+                
+                debugLog('Adding Shift', shiftData);
+                shifts.push(shiftData);
+            }
+        });
+
+        debugLog('collectShiftData Result', { 
+            totalShifts: shifts.length,
+            shifts 
+        });
+        
+        return shifts;
+    }
+
+    function updateHours() {
+        debugLog('updateHours Start', { message: 'Starting to update hours' });
+        
+        // Get all shifts
+        const shifts = collectShiftData();
+        
+        // Initialize data for all caregivers
+        const caregiverData = {};
+        document.querySelectorAll('#caregiver-summary tbody tr').forEach(row => {
+            const caregiverId = row.dataset.caregiverId;
+            caregiverData[caregiverId] = {
+                hours: 0,
+                workingDays: new Map() // Changed to Map to store day -> shift type mapping
+            };
+        });
+        
+        // Calculate hours and working days from shifts
+        shifts.forEach(shift => {
+            const caregiverId = shift.caregiver_id;
+            if (caregiverId in caregiverData) {
+                // Add hours
+                const shiftHours = SHIFT_HOURS[shift.shift_type] || 8;
+                caregiverData[caregiverId].hours += shiftHours;
+                
+                // Add working day with shift type
+                const dayName = Object.keys(DAYS_MAP).find(key => DAYS_MAP[key] === shift.day);
+                caregiverData[caregiverId].workingDays.set(dayName, shift.shift_type);
+            }
+        });
+        
+        let totalHours = 0;
+        
+        // Update the caregiver summary table
+        document.querySelectorAll('#caregiver-summary tbody tr').forEach(row => {
+            const caregiverId = row.dataset.caregiverId;
+            if (caregiverId && caregiverData[caregiverId]) {
+                const data = caregiverData[caregiverId];
+                
+                // Format working days as "Day: Shift (Time)" with each day on a new line
+                const workingDaysText = Array.from(data.workingDays.entries())
+                    .sort((a, b) => DAYS_MAP[a[0]] - DAYS_MAP[b[0]]) // Sort by day order
+                    .map(([day, shift]) => {
+                        const shiftDef = shiftDefinitions[shift];
+                        const startTime = formatTime(shiftDef.start);
+                        const endTime = formatTime(shiftDef.end);
+                        return `${day}: ${shift} (${startTime}-${endTime})`;
+                    })
+                    .join('\n');
+                
+                // Calculate off days and sort them
+                const workingDaySet = new Set(data.workingDays.keys());
+                const offDays = Object.keys(DAYS_MAP)
+                    .filter(day => !workingDaySet.has(day))
+                    .sort((a, b) => DAYS_MAP[a] - DAYS_MAP[b]);
+                
+                // Update working days with line breaks
+                const workingDaysCell = row.querySelector('.working-days');
+                workingDaysCell.innerHTML = workingDaysText ? workingDaysText.split('\n').join('<br>') : '-';
+                workingDaysCell.style.whiteSpace = 'pre-line';
+                
+                // Update days off with actual day names
+                row.children[2].textContent = offDays.length > 0 ? offDays.join(', ') : '-';
+                
+                // Update total hours
+                row.children[3].textContent = data.hours;
+                totalHours += data.hours;
+                
+                // Highlight if over max hours (using the max hours from caregiver cards)
+                const caregiverCard = document.querySelector(`.card-text[data-caregiver-id="${caregiverId}"]`);
+                if (caregiverCard) {
+                    const maxHours = parseInt(caregiverCard.textContent.split('/')[1].trim());
+                    if (data.hours > maxHours) {
+                        row.classList.add('table-warning');
+                    } else {
+                        row.classList.remove('table-warning');
+                    }
+                }
+            }
+        });
+        
+        // Update total hours in footer
+        document.getElementById('total-hours').textContent = totalHours;
+        
+        // Update the caregiver hours cards
+        Object.entries(caregiverData).forEach(([caregiverId, data]) => {
+            const hoursSpan = document.querySelector(`.hours[data-caregiver-id="${caregiverId}"]`);
+            if (hoursSpan) {
+                hoursSpan.textContent = data.hours;
+                
+                // Update card styling based on hours
+                const card = hoursSpan.closest('.card');
+                if (card) {
+                    const maxHours = parseInt(card.querySelector('.card-text').textContent.split('/')[1].trim());
+                    if (data.hours > maxHours) {
+                        card.classList.add('bg-warning');
+                    } else {
+                        card.classList.remove('bg-warning');
+                    }
+                }
+            }
+        });
+        
+        // Update tooltips for selected caregivers
+        document.querySelectorAll('.shift-select').forEach(select => {
+            if (select.value) {
+                const selectedOption = select.options[select.selectedIndex];
+                select.title = selectedOption.text; // Show full name on hover
+            }
+        });
+        
+        debugLog('updateHours Complete', { message: 'Hours updated successfully' });
+        updateHourlyCoverage(); // Update coverage display
+    }
+
+    // Helper function to format time in 12-hour format with AM/PM
+    function formatTime(time24) {
+        const [hours, minutes] = time24.split(':').map(Number);
+        const period = hours >= 12 ? 'PM' : 'AM';
+        const hours12 = hours % 12 || 12;
+        return `${hours12}:${minutes.toString().padStart(2, '0')}${period}`;
+    }
+
+    function saveSchedule() {
+        const shifts = collectShiftData();
+        if (shifts.length === 0) {
+            alert('Please assign at least one shift before saving.');
+            return;
+        }
+
+        fetch('/save_schedule', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ shifts: shifts })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Schedule saved successfully!');
+            } else {
+                alert('Error saving schedule: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error saving schedule. Please try again.');
+        });
+    }
+
+    function updateHourlyCoverage() {
+        // Reset all cells
+        document.querySelectorAll('.coverage-cell').forEach(cell => {
+            cell.querySelector('.coverage-initials').textContent = '';
+            cell.classList.remove('bg-danger', 'bg-warning', 'bg-success');
+            cell.classList.add('bg-danger');
+        });
+
+        // Get all selected shifts
+        const shifts = collectShiftData();
+        
+        // Create a map to store caregivers working each 2-hour block
+        const coverageMap = {};
+        
+        // Process each shift
+        shifts.forEach(shift => {
+            const dayName = Object.keys(DAYS_MAP).find(key => DAYS_MAP[key] === shift.day);
+            const shiftDef = shiftDefinitions[shift.shift_type];
+            
+            // Parse shift times
+            let [startHour] = shiftDef.start.split(':').map(Number);
+            let [endHour] = shiftDef.end.split(':').map(Number);
+            
+            // Handle overnight shifts
+            if (endHour <= startHour) {
+                endHour += 24;
+            }
+            
+            // Get caregiver initials
+            const select = document.querySelector(`.shift-select[data-day="${dayName}"][data-shift="${shift.shift_type}"]`);
+            const option = select.options[select.selectedIndex];
+            const initials = option.dataset.initials;
+            
+            // Update coverage for each 2-hour block of the shift
+            for (let hour = Math.floor(startHour/2)*2; hour < endHour; hour += 2) {
+                const displayHour = hour % 24;
+                const key = `${dayName}-${displayHour}`;
+                
+                if (!coverageMap[key]) {
+                    coverageMap[key] = new Set();
+                }
+                coverageMap[key].add(initials);
+                
+                const cell = document.querySelector(`.coverage-cell[data-day="${dayName}"][data-hour="${displayHour}"]`);
+                if (cell) {
+                    const initialsDiv = cell.querySelector('.coverage-initials');
+                    
+                    // Update initials
+                    initialsDiv.textContent = Array.from(coverageMap[key]).join(', ');
+                    
+                    // Update cell color based on coverage
+                    cell.classList.remove('bg-danger', 'bg-warning', 'bg-success');
+                    const count = coverageMap[key].size;
+                    if (count === 0) {
+                        cell.classList.add('bg-danger');
+                    } else if (count === 1) {
+                        cell.classList.add('bg-warning');
+                    } else {
+                        cell.classList.add('bg-success');
+                    }
+                }
+            }
+        });
+    }
+
+    // Update both hours and coverage when shifts change
+    function updateAll() {
+        updateHours();
+        updateHourlyCoverage();
+    }
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        const shiftSelects = document.querySelectorAll('.shift-select');
+        shiftSelects.forEach(select => {
+            select.addEventListener('change', updateAll);
+        });
+        updateAll(); // Initial calculation
+
+        // Add a "Manage Caregivers" button to the header
+        const headerButtons = document.querySelector('.col-md-4.text-end');
+        const manageCaregiverBtn = document.createElement('button');
+        manageCaregiverBtn.className = 'btn btn-info me-2';
+        manageCaregiverBtn.textContent = 'Manage Caregivers';
+        manageCaregiverBtn.setAttribute('data-bs-toggle', 'modal');
+        manageCaregiverBtn.setAttribute('data-bs-target', '#manageCaregivers');
+        headerButtons.insertBefore(manageCaregiverBtn, headerButtons.firstChild);
+
+        // Clear template name display
+        document.getElementById('template-name-display').textContent = '';
+    });
+
+    function saveAsTemplate() {
+        const shifts = collectShiftData();
+        if (shifts.length === 0) {
+            alert('Please assign at least one shift before saving the template');
+            return;
+        }
+        new bootstrap.Modal(document.getElementById('saveTemplateModal')).show();
+    }
+
+    function saveTemplate() {
+        debugLog('saveTemplate Start', { message: 'Starting to save template' });
+        
+        const templateName = document.getElementById('templateName').value.trim();
+        if (!templateName) {
+            alert('Please enter a template name');
+            return;
+        }
+
+        // Collect shifts using the existing collectShiftData function
+        const shifts = collectShiftData();
+        debugLog('Collected Shifts', { shifts });
+        
+        if (shifts.length === 0) {
+            alert('Please assign at least one shift before saving the template');
+            return;
+        }
+
+        const templateData = {
+            name: templateName,
+            shifts: shifts
+        };
+
+        debugLog('Saving Template Data', templateData);
+
+        // Save template via API
+        fetch('/api/templates', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(templateData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Failed to save template');
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            debugLog('Template Saved Successfully', data);
+            document.getElementById('templateName').value = '';
+            
+            // Close the modal
+            const modal = document.getElementById('saveTemplateModal');
+            if (modal) {
+                const modalInstance = bootstrap.Modal.getInstance(modal);
+                if (modalInstance) {
+                    modalInstance.hide();
+                }
+            }
+            
+            alert('Template saved successfully!');
+            location.reload();  // Refresh to show the new template
+        })
+        .catch(error => {
+            console.error('Error saving template:', error);
+            alert('Error saving template: ' + error.message);
+        });
+    }
+
+    function loadTemplate(templateId) {
+        debugLog('loadTemplate Start', { templateId });
+
+        // Find the template
+        const template = templates.find(t => t.id === templateId);
+        if (!template) {
+            alert('Template not found');
+            return;
+        }
+
+        // Clear all existing selections
+        document.querySelectorAll('.shift-select').forEach(select => {
+            select.value = '';
+        });
+
+        // Apply template shifts
+        template.shifts.forEach(shift => {
+            // Find the day name from the day number
+            const dayName = Object.keys(DAYS_MAP).find(key => DAYS_MAP[key] === shift.day);
+            if (!dayName) {
+                console.error('Invalid day number:', shift.day);
+                return;
+            }
+
+            // Find and update the corresponding select element
+            const select = document.querySelector(`.shift-select[data-day="${dayName}"][data-shift="${shift.shift_type}"]`);
+            if (select) {
+                select.value = shift.caregiver_id;
+            }
+        });
+
+        // Update the template name display
+        document.getElementById('template-name-display').textContent = ` - ${template.name}`;
+
+        // Update hours and coverage
+        updateAll();
+
+        // Close the modal
+        const modal = document.getElementById('loadTemplateModal');
+        if (modal) {
+            const modalInstance = bootstrap.Modal.getInstance(modal);
+            if (modalInstance) {
+                modalInstance.hide();
+            }
+        }
+    }
+
+    function deleteTemplate(templateId, event) {
+        event.stopPropagation();
+        if (!confirm('Are you sure you want to delete this template?')) return;
+        
+        fetch(`/api/templates/${templateId}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                location.reload();
+            }
+        });
+    }
+
+    // Add some styles for the coverage cells
+    const style = document.createElement('style');
+    style.textContent = `
+        .coverage-cell {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            position: relative;
+            min-height: 40px;
+            padding: 8px 4px;
+            vertical-align: middle;
+        }
+        .coverage-initials {
+            font-size: 0.9em;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+        .bg-danger { 
+            background-color: #dc3545 !important; 
+        }
+        .bg-warning { 
+            background-color: #ffc107 !important; 
+            color: black !important; 
+        }
+        .bg-success { 
+            background-color: #198754 !important; 
+        }
+        .coverage-cell:hover {
+            opacity: 0.9;
+            cursor: default;
+        }
+    `;
+    document.head.appendChild(style);
+
+    function showAddCaregiverForm() {
+        document.getElementById('addCaregiverForm').style.display = 'block';
+    }
+
+    function hideAddCaregiverForm() {
+        document.getElementById('addCaregiverForm').style.display = 'none';
+        document.getElementById('newCaregiverName').value = '';
+        document.getElementById('newCaregiverMaxHours').value = '40';
+        document.getElementById('newCaregiverColor').value = '#3788d8';
+    }
+
+    function addCaregiver() {
+        const name = document.getElementById('newCaregiverName').value.trim();
+        const maxHours = parseInt(document.getElementById('newCaregiverMaxHours').value);
+        const color = document.getElementById('newCaregiverColor').value;
+
+        if (!name) {
+            alert('Please enter a caregiver name');
+            return;
+        }
+
+        if (isNaN(maxHours) || maxHours <= 0 || maxHours > 168) {
+            alert('Please enter valid maximum hours (1-168)');
+            return;
+        }
+
+        const caregiverData = {
+            name: name,
+            max_hours: maxHours,
+            color: color
+        };
+
+        fetch('/api/caregivers', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(caregiverData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                throw new Error(data.error);
+            }
+            location.reload();
+        })
+        .catch(error => {
+            alert('Error adding caregiver: ' + error.message);
+        });
+    }
+
+    function editCaregiver(caregiverId) {
+        const row = document.querySelector(`tr[data-caregiver-id="${caregiverId}"]`);
+        if (!row) {
+            console.error('Row not found for caregiver:', caregiverId);
+            return;
+        }
+
+        // Hide display elements and show edit inputs
+        const nameDisplay = row.querySelector('.caregiver-name');
+        const hoursDisplay = row.querySelector('.caregiver-hours');
+        const colorPreview = row.querySelector('.color-preview');
+        const nameInput = row.querySelector('.edit-name');
+        const hoursInput = row.querySelector('.edit-hours');
+        const colorInput = row.querySelector('.edit-color');
+        const editBtn = row.querySelector('.edit-btn');
+        const saveBtn = row.querySelector('.save-btn');
+        const cancelBtn = row.querySelector('.cancel-btn');
+
+        if (nameDisplay) nameDisplay.style.display = 'none';
+        if (hoursDisplay) hoursDisplay.style.display = 'none';
+        if (colorPreview) colorPreview.style.display = 'none';
+        if (nameInput) nameInput.style.display = 'block';
+        if (hoursInput) hoursInput.style.display = 'block';
+        if (colorInput) colorInput.style.display = 'block';
+        if (editBtn) editBtn.style.display = 'none';
+        if (saveBtn) saveBtn.style.display = 'inline-block';
+        if (cancelBtn) cancelBtn.style.display = 'inline-block';
+    }
+
+    function saveCaregiver(caregiverId) {
+        const row = document.querySelector(`tr[data-caregiver-id="${caregiverId}"]`);
+        if (!row) {
+            console.error('Row not found for caregiver:', caregiverId);
+            return;
+        }
+
+        const nameInput = row.querySelector('.edit-name');
+        const hoursInput = row.querySelector('.edit-hours');
+        const colorInput = row.querySelector('.edit-color');
+
+        if (!nameInput || !hoursInput || !colorInput) {
+            console.error('Required input fields not found');
+            return;
+        }
+
+        const name = nameInput.value.trim();
+        const maxHours = parseInt(hoursInput.value);
+        const color = colorInput.value;
+
+        // Validate inputs
+        if (!name) {
+            alert('Please enter a caregiver name');
+            nameInput.focus();
+            return;
+        }
+
+        if (isNaN(maxHours) || maxHours <= 0 || maxHours > 168) {
+            alert('Please enter valid maximum hours (1-168)');
+            hoursInput.focus();
+            return;
+        }
+
+        // Show loading state
+        const saveBtn = row.querySelector('.save-btn');
+        if (saveBtn) {
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+        }
+
+        // Prepare data for API
+        const caregiverData = {
+            name: name,
+            max_hours: maxHours,
+            color: color
+        };
+
+        // Send update request
+        fetch(`/api/caregivers/${caregiverId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(caregiverData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Failed to update caregiver');
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Update display values
+            const nameDisplay = row.querySelector('.caregiver-name');
+            const hoursDisplay = row.querySelector('.caregiver-hours');
+            const colorPreview = row.querySelector('.color-preview');
+
+            if (nameDisplay) nameDisplay.textContent = name;
+            if (hoursDisplay) hoursDisplay.textContent = maxHours;
+            if (colorPreview) colorPreview.style.backgroundColor = color;
+
+            // Reset form display
+            cancelEdit(caregiverId);
+
+            // Show success message
+            showToast('Success', 'Caregiver updated successfully');
+        })
+        .catch(error => {
+            console.error('Error updating caregiver:', error);
+            alert('Error updating caregiver: ' + error.message);
+        })
+        .finally(() => {
+            // Reset button state
+            if (saveBtn) {
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Save';
+            }
+        });
+    }
+
+    function cancelEdit(caregiverId) {
+        const row = document.querySelector(`tr[data-caregiver-id="${caregiverId}"]`);
+        if (!row) {
+            console.error('Row not found for caregiver:', caregiverId);
+            return;
+        }
+
+        // Show display elements and hide edit inputs
+        const nameDisplay = row.querySelector('.caregiver-name');
+        const hoursDisplay = row.querySelector('.caregiver-hours');
+        const colorPreview = row.querySelector('.color-preview');
+        const nameInput = row.querySelector('.edit-name');
+        const hoursInput = row.querySelector('.edit-hours');
+        const colorInput = row.querySelector('.edit-color');
+        const editBtn = row.querySelector('.edit-btn');
+        const saveBtn = row.querySelector('.save-btn');
+        const cancelBtn = row.querySelector('.cancel-btn');
+
+        if (nameDisplay) nameDisplay.style.display = '';
+        if (hoursDisplay) hoursDisplay.style.display = '';
+        if (colorPreview) colorPreview.style.display = '';
+        if (nameInput) nameInput.style.display = 'none';
+        if (hoursInput) hoursInput.style.display = 'none';
+        if (colorInput) colorInput.style.display = 'none';
+        if (editBtn) editBtn.style.display = 'inline-block';
+        if (saveBtn) saveBtn.style.display = 'none';
+        if (cancelBtn) cancelBtn.style.display = 'none';
+
+        // Reset input values to current display values
+        if (nameInput && nameDisplay) nameInput.value = nameDisplay.textContent.trim();
+        if (hoursInput && hoursDisplay) hoursInput.value = hoursDisplay.textContent.trim();
+        if (colorInput && colorPreview) {
+            const currentColor = colorPreview.style.backgroundColor;
+            colorInput.value = rgbToHex(currentColor);
+        }
+    }
+
+    // Helper function to convert RGB to Hex color
+    function rgbToHex(rgb) {
+        // If already in hex format, return as is
+        if (rgb.startsWith('#')) return rgb;
+        
+        // Extract RGB values
+        const rgbValues = rgb.match(/\d+/g);
+        if (!rgbValues || rgbValues.length !== 3) return '#000000';
+        
+        const r = parseInt(rgbValues[0]);
+        const g = parseInt(rgbValues[1]);
+        const b = parseInt(rgbValues[2]);
+        
+        return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    }
+
+    function deleteCaregiver(caregiverId) {
+        if (!confirm('Are you sure you want to delete this caregiver? This will also remove them from any existing schedules.')) {
+            return;
+        }
+
+        fetch(`/api/caregivers/${caregiverId}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                throw new Error(data.error);
+            }
+            location.reload();
+        })
+        .catch(error => {
+            alert('Error deleting caregiver: ' + error.message);
+        });
+    }
+
+    function showExportModal() {
+        // Set default template name from display if exists
+        const templateName = document.getElementById('template-name-display').textContent.trim().replace(' - ', '') || 'Weekly Schedule';
+        document.getElementById('exportTemplateName').value = templateName;
+        
+        // Set default start date to next Monday
+        const nextMonday = new Date();
+        nextMonday.setDate(nextMonday.getDate() + (8 - nextMonday.getDay()) % 7);
+        document.getElementById('exportStartDate').value = nextMonday.toISOString().split('T')[0];
+        
+        // Show the modal
+        const modal = new bootstrap.Modal(document.getElementById('exportGCalModal'));
+        modal.show();
+    }
+
+    function exportToGoogleCalendar() {
+        const templateName = document.getElementById('exportTemplateName').value.trim();
+        const startDate = new Date(document.getElementById('exportStartDate').value);
+        const numWeeks = parseInt(document.getElementById('exportWeeks').value);
+        
+        if (!templateName || !startDate || isNaN(numWeeks) || numWeeks < 1) {
+            alert('Please fill in all fields correctly');
+            return;
+        }
+
+        // Collect shift data
+        const shifts = collectShiftData();
+        if (shifts.length === 0) {
+            alert('No shifts to export');
+            return;
+        }
+
+        // Start building the ICS file content
+        let icsContent = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Caregiver Scheduler//EN',
+            'CALSCALE:GREGORIAN',
+            'METHOD:PUBLISH',
+            `X-WR-CALNAME:${templateName}`
+        ];
+
+        // Process each shift for the specified number of weeks
+        for (let week = 0; week < numWeeks; week++) {
+            const weekStart = new Date(startDate);
+            weekStart.setDate(weekStart.getDate() + (week * 7));
+
+            shifts.forEach(shift => {
+                const shiftDate = new Date(weekStart);
+                shiftDate.setDate(shiftDate.getDate() + shift.day);
+
+                // Get shift times
+                const shiftDef = shiftDefinitions[shift.shift_type];
+                const [startHour, startMinute] = shiftDef.start.split(':');
+                const [endHour, endMinute] = shiftDef.end.split(':');
+
+                // Create start and end times
+                const shiftStart = new Date(shiftDate);
+                shiftStart.setHours(parseInt(startHour), parseInt(startMinute), 0);
+                
+                const shiftEnd = new Date(shiftDate);
+                shiftEnd.setHours(parseInt(endHour), parseInt(endMinute), 0);
+                if (endHour < startHour) {
+                    shiftEnd.setDate(shiftEnd.getDate() + 1);
+                }
+
+                // Get caregiver name
+                const select = document.querySelector(`.shift-select[data-day="${Object.keys(DAYS_MAP)[shift.day]}"][data-shift="${shift.shift_type}"]`);
+                const caregiverName = select.options[select.selectedIndex].text;
+
+                // Create event title and description
+                const title = `${caregiverName} - ${shift.shift_type}`;
+                const description = `Template: ${templateName}\\nShift Type: ${shift.shift_type}`;
+
+                // Format dates for ICS
+                const dateToICS = (date) => {
+                    return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+                };
+
+                // Add event to ICS content
+                icsContent = icsContent.concat([
+                    'BEGIN:VEVENT',
+                    `UID:${dateToICS(shiftStart)}-${shift.shift_type}-${shift.caregiver_id}@caregiverscheduler`,
+                    `DTSTAMP:${dateToICS(new Date())}`,
+                    `DTSTART:${dateToICS(shiftStart)}`,
+                    `DTEND:${dateToICS(shiftEnd)}`,
+                    `SUMMARY:${title}`,
+                    `DESCRIPTION:${description}`,
+                    'END:VEVENT'
+                ]);
+            });
+        }
+
+        // Close the calendar
+        icsContent.push('END:VCALENDAR');
+
+        // Create and download the ICS file
+        const blob = new Blob([icsContent.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = `${templateName.replace(/[^a-z0-9]/gi, '_')}_schedule.ics`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Close the modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('exportGCalModal'));
+        modal.hide();
+    }
+</script>
+{% endblock %} 

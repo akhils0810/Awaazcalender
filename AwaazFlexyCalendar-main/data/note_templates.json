@@ -1,0 +1,41 @@
+[
+  {
+    "id": "default",
+    "name": "Default Shift Notes",
+    "fields": [
+      {
+        "id": "general_notes",
+        "type": "textarea",
+        "label": "General Notes",
+        "required": true,
+        "placeholder": "Enter general notes about the shift..."
+      },
+      {
+        "id": "incidents",
+        "type": "textarea",
+        "label": "Incidents/Concerns",
+        "required": false,
+        "placeholder": "Document any incidents or concerns..."
+      },
+      {
+        "id": "tasks_completed",
+        "type": "checklist",
+        "label": "Tasks Completed",
+        "required": true,
+        "options": [
+          "Medication administered",
+          "Meals prepared",
+          "Activities completed",
+          "Room cleaned"
+        ]
+      },
+      {
+        "id": "next_shift_handover",
+        "type": "textarea",
+        "label": "Handover Notes for Next Shift",
+        "required": true,
+        "placeholder": "Important information for the next caregiver..."
+      }
+    ]
+  }
+]

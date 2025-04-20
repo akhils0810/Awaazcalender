@@ -1,0 +1,1010 @@
+[
+  {
+    "id": "36",
+    "caregiver_id": "1",
+    "shift_type": "A1",
+    "start": "2025-04-29 00:01",
+    "end": "2025-04-29 08:00",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "37",
+    "caregiver_id": "5",
+    "shift_type": "A1",
+    "start": "2025-04-30 00:01",
+    "end": "2025-04-30 08:00",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "38",
+    "caregiver_id": "2",
+    "shift_type": "A1",
+    "start": "2025-05-01 00:01",
+    "end": "2025-05-01 08:00",
+    "caregiver_name": "MariaB",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "39",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-02 00:01",
+    "end": "2025-05-02 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "40",
+    "caregiver_id": "2",
+    "shift_type": "A1",
+    "start": "2025-05-03 00:01",
+    "end": "2025-05-03 08:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "41",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-04 00:01",
+    "end": "2025-05-04 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "43",
+    "caregiver_id": "2",
+    "shift_type": "A3",
+    "start": "2025-04-29 06:00",
+    "end": "2025-04-29 14:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "44",
+    "caregiver_id": "2",
+    "shift_type": "A3",
+    "start": "2025-04-30 06:00",
+    "end": "2025-04-30 14:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "45",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-01 06:00",
+    "end": "2025-05-01 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "46",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-02 06:00",
+    "end": "2025-05-02 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "47",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-03 06:00",
+    "end": "2025-05-03 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "48",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-04 06:00",
+    "end": "2025-05-04 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "50",
+    "caregiver_id": "5",
+    "shift_type": "B1",
+    "start": "2025-05-02 14:00",
+    "end": "2025-05-02 22:00",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "53",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-04-30 16:00",
+    "end": "2025-04-30 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "54",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-01 16:00",
+    "end": "2025-05-01 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "55",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-02 16:00",
+    "end": "2025-05-02 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "56",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-03 16:00",
+    "end": "2025-05-03 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "57",
+    "caregiver_id": "5",
+    "shift_type": "B2",
+    "start": "2025-05-04 16:00",
+    "end": "2025-05-04 23:59",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "59",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-04-29 18:00",
+    "end": "2025-04-29 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "60",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-04-30 18:00",
+    "end": "2025-04-30 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "61",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-05-01 18:00",
+    "end": "2025-05-01 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "63",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-04-29 10:00",
+    "end": "2025-04-29 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "64",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-04-30 10:00",
+    "end": "2025-04-30 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "65",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-01 10:00",
+    "end": "2025-05-01 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "66",
+    "caregiver_id": "2",
+    "shift_type": "G",
+    "start": "2025-05-02 10:00",
+    "end": "2025-05-02 18:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "67",
+    "caregiver_id": "5",
+    "shift_type": "G",
+    "start": "2025-05-03 10:00",
+    "end": "2025-05-03 18:00",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "68",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-04 10:00",
+    "end": "2025-05-04 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "69",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-05 00:01",
+    "end": "2025-05-05 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "70",
+    "caregiver_id": "1",
+    "shift_type": "A1",
+    "start": "2025-05-06 00:01",
+    "end": "2025-05-06 08:00",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "71",
+    "caregiver_id": "5",
+    "shift_type": "A1",
+    "start": "2025-05-07 00:01",
+    "end": "2025-05-07 08:00",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "72",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-08 00:01",
+    "end": "2025-05-08 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "73",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-09 00:01",
+    "end": "2025-05-09 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "74",
+    "caregiver_id": "2",
+    "shift_type": "A1",
+    "start": "2025-05-10 00:01",
+    "end": "2025-05-10 08:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "75",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-11 00:01",
+    "end": "2025-05-11 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "76",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-05 06:00",
+    "end": "2025-05-05 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "77",
+    "caregiver_id": "2",
+    "shift_type": "A3",
+    "start": "2025-05-06 06:00",
+    "end": "2025-05-06 14:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "78",
+    "caregiver_id": "2",
+    "shift_type": "A3",
+    "start": "2025-05-07 06:00",
+    "end": "2025-05-07 14:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "79",
+    "caregiver_id": "2",
+    "shift_type": "A3",
+    "start": "2025-05-08 06:00",
+    "end": "2025-05-08 14:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "80",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-09 06:00",
+    "end": "2025-05-09 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "81",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-10 06:00",
+    "end": "2025-05-10 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "82",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-11 06:00",
+    "end": "2025-05-11 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "83",
+    "caregiver_id": "6",
+    "shift_type": "B1",
+    "start": "2025-05-06 14:00",
+    "end": "2025-05-06 22:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "84",
+    "caregiver_id": "5",
+    "shift_type": "B1",
+    "start": "2025-05-09 14:00",
+    "end": "2025-05-09 22:00",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "85",
+    "caregiver_id": "5",
+    "shift_type": "B2",
+    "start": "2025-05-05 16:00",
+    "end": "2025-05-05 23:59",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "86",
+    "caregiver_id": "3",
+    "shift_type": "B2",
+    "start": "2025-05-06 16:00",
+    "end": "2025-05-06 23:59",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "87",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-07 16:00",
+    "end": "2025-05-07 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "88",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-08 16:00",
+    "end": "2025-05-08 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "89",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-09 16:00",
+    "end": "2025-05-09 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "90",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-10 16:00",
+    "end": "2025-05-10 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "91",
+    "caregiver_id": "5",
+    "shift_type": "B2",
+    "start": "2025-05-11 16:00",
+    "end": "2025-05-11 23:59",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "92",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-05-05 18:00",
+    "end": "2025-05-05 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "93",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-05-06 18:00",
+    "end": "2025-05-06 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "94",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-05-07 18:00",
+    "end": "2025-05-07 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "95",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-05-08 18:00",
+    "end": "2025-05-08 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "96",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-05 10:00",
+    "end": "2025-05-05 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "97",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-06 10:00",
+    "end": "2025-05-06 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "98",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-07 10:00",
+    "end": "2025-05-07 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "99",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-08 10:00",
+    "end": "2025-05-08 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "100",
+    "caregiver_id": "2",
+    "shift_type": "G",
+    "start": "2025-05-09 10:00",
+    "end": "2025-05-09 18:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "101",
+    "caregiver_id": "5",
+    "shift_type": "G",
+    "start": "2025-05-10 10:00",
+    "end": "2025-05-10 18:00",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "102",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-11 10:00",
+    "end": "2025-05-11 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "103",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-12 00:01",
+    "end": "2025-05-12 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "104",
+    "caregiver_id": "1",
+    "shift_type": "A1",
+    "start": "2025-05-13 00:01",
+    "end": "2025-05-13 08:00",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "105",
+    "caregiver_id": "5",
+    "shift_type": "A1",
+    "start": "2025-05-14 00:01",
+    "end": "2025-05-14 08:00",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "106",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-15 00:01",
+    "end": "2025-05-15 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "107",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-16 00:01",
+    "end": "2025-05-16 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "108",
+    "caregiver_id": "2",
+    "shift_type": "A1",
+    "start": "2025-05-17 00:01",
+    "end": "2025-05-17 08:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "109",
+    "caregiver_id": "3",
+    "shift_type": "A1",
+    "start": "2025-05-18 00:01",
+    "end": "2025-05-18 08:00",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "110",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-12 06:00",
+    "end": "2025-05-12 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "111",
+    "caregiver_id": "2",
+    "shift_type": "A3",
+    "start": "2025-05-13 06:00",
+    "end": "2025-05-13 14:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "112",
+    "caregiver_id": "2",
+    "shift_type": "A3",
+    "start": "2025-05-14 06:00",
+    "end": "2025-05-14 14:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "113",
+    "caregiver_id": "2",
+    "shift_type": "A3",
+    "start": "2025-05-15 06:00",
+    "end": "2025-05-15 14:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "114",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-16 06:00",
+    "end": "2025-05-16 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "115",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-17 06:00",
+    "end": "2025-05-17 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "116",
+    "caregiver_id": "6",
+    "shift_type": "A3",
+    "start": "2025-05-18 06:00",
+    "end": "2025-05-18 14:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "117",
+    "caregiver_id": "6",
+    "shift_type": "B1",
+    "start": "2025-05-13 14:00",
+    "end": "2025-05-13 22:00",
+    "caregiver_name": "MariaH",
+    "color": "#b4b4b4"
+  },
+  {
+    "id": "118",
+    "caregiver_id": "5",
+    "shift_type": "B1",
+    "start": "2025-05-16 14:00",
+    "end": "2025-05-16 22:00",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "119",
+    "caregiver_id": "5",
+    "shift_type": "B2",
+    "start": "2025-05-12 16:00",
+    "end": "2025-05-12 23:59",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "120",
+    "caregiver_id": "3",
+    "shift_type": "B2",
+    "start": "2025-05-13 16:00",
+    "end": "2025-05-13 23:59",
+    "caregiver_name": "Amanda",
+    "color": "#5a5a5a"
+  },
+  {
+    "id": "121",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-14 16:00",
+    "end": "2025-05-14 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "122",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-15 16:00",
+    "end": "2025-05-15 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "123",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-16 16:00",
+    "end": "2025-05-16 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "124",
+    "caregiver_id": "1",
+    "shift_type": "B2",
+    "start": "2025-05-17 16:00",
+    "end": "2025-05-17 23:59",
+    "caregiver_name": "Kisha",
+    "color": "#1e1e1e"
+  },
+  {
+    "id": "125",
+    "caregiver_id": "5",
+    "shift_type": "B2",
+    "start": "2025-05-18 16:00",
+    "end": "2025-05-18 23:59",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "126",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-05-12 18:00",
+    "end": "2025-05-12 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "127",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-05-13 18:00",
+    "end": "2025-05-13 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "128",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-05-14 18:00",
+    "end": "2025-05-14 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "129",
+    "caregiver_id": "8",
+    "shift_type": "B3",
+    "start": "2025-05-15 18:00",
+    "end": "2025-05-15 22:00",
+    "caregiver_name": "Shyala",
+    "color": "#3788d8"
+  },
+  {
+    "id": "130",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-12 10:00",
+    "end": "2025-05-12 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "131",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-13 10:00",
+    "end": "2025-05-13 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "132",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-14 10:00",
+    "end": "2025-05-14 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "133",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-15 10:00",
+    "end": "2025-05-15 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "134",
+    "caregiver_id": "2",
+    "shift_type": "G",
+    "start": "2025-05-16 10:00",
+    "end": "2025-05-16 18:00",
+    "caregiver_name": "MariaB",
+    "color": "#3c3c3c"
+  },
+  {
+    "id": "135",
+    "caregiver_id": "5",
+    "shift_type": "G",
+    "start": "2025-05-17 10:00",
+    "end": "2025-05-17 18:00",
+    "caregiver_name": "Michelle",
+    "color": "#969696"
+  },
+  {
+    "id": "136",
+    "caregiver_id": "7",
+    "shift_type": "G",
+    "start": "2025-05-18 10:00",
+    "end": "2025-05-18 18:00",
+    "caregiver_name": "Tae",
+    "color": "#d2d2d2"
+  },
+  {
+    "id": "137",
+    "caregiver_id": "4",
+    "shift_type": "A3",
+    "start": "2025-05-25 06:00",
+    "end": "2025-05-25 14:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "138",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-05-19 14:00",
+    "end": "2025-05-19 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "139",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-05-20 14:00",
+    "end": "2025-05-20 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "140",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-05-21 14:00",
+    "end": "2025-05-21 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "141",
+    "caregiver_id": "4",
+    "shift_type": "A3",
+    "start": "2025-06-01 06:00",
+    "end": "2025-06-01 14:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "142",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-05-26 14:00",
+    "end": "2025-05-26 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "143",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-05-27 14:00",
+    "end": "2025-05-27 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "144",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-05-28 14:00",
+    "end": "2025-05-28 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "146",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-04-14 14:00",
+    "end": "2025-04-14 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "147",
+    "caregiver_id": "4",
+    "shift_type": "A3",
+    "start": "2025-04-28 06:00",
+    "end": "2025-04-28 14:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "148",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-04-22 14:00",
+    "end": "2025-04-22 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "149",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-04-23 14:00",
+    "end": "2025-04-23 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "150",
+    "caregiver_id": "4",
+    "shift_type": "B1",
+    "start": "2025-04-24 14:00",
+    "end": "2025-04-24 22:00",
+    "caregiver_name": "Fatima",
+    "color": "#787878"
+  },
+  {
+    "id": "151",
+    "caregiver_id": "10",
+    "shift_type": "B1",
+    "start": "2025-04-27 14:00",
+    "end": "2025-04-27 22:00",
+    "caregiver_name": "CG9",
+    "color": "#3788d8"
+  },
+  {
+    "id": "152",
+    "caregiver_id": "10",
+    "shift_type": "B1",
+    "start": "2025-04-28 14:00",
+    "end": "2025-04-28 22:00",
+    "caregiver_name": "CG9",
+    "color": "#3788d8"
+  },
+  {
+    "id": "153",
+    "caregiver_id": "9",
+    "shift_type": "G",
+    "start": "2025-04-27 10:00",
+    "end": "2025-04-27 18:00",
+    "caregiver_name": "CG8",
+    "color": "#3788d8"
+  },
+  {
+    "id": "154",
+    "caregiver_id": "9",
+    "shift_type": "G",
+    "start": "2025-04-28 10:00",
+    "end": "2025-04-28 18:00",
+    "caregiver_name": "CG8",
+    "color": "#3788d8"
+  }
+]

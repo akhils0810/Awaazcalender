@@ -1,0 +1,336 @@
+{% extends "base.html" %}
+
+{% block title %}Monthly View{% endblock %}
+
+{% block extra_css %}
+<style>
+    .month-grid {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    .time-column {
+        width: 80px;
+        background-color: #f8f9fa;
+        font-weight: 500;
+        font-size: 0.9em;
+        text-align: left;
+        padding: 4px 8px !important;
+        position: sticky;
+        left: 0;
+        z-index: 2;
+    }
+    .day-text {
+        font-weight: 500;
+    }
+    .date-text {
+        font-size: 0.85em;
+        color: #666;
+    }
+    .shift-cell {
+        height: 50px;
+        padding: 2px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        position: relative;
+    }
+    .shift-block {
+        height: 20px;
+        margin: 1px 0;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-size: 11px;
+        line-height: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        text-shadow: 0 0 2px rgba(0,0,0,0.5);
+    }
+    .shift-block:hover {
+        transform: scale(1.02);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 1;
+    }
+    .shift-cell.has-multiple {
+        padding: 2px !important;
+    }
+    .shift-cell.has-multiple .shift-block {
+        min-height: 16px;
+        font-size: 0.7em;
+    }
+    .shift-cell.weekend {
+        background-color: #f8f9fa30;
+    }
+    .shift-cell.today {
+        background-color: #fff3cd30;
+    }
+    .time-header {
+        text-align: center;
+        font-size: 0.85em;
+        font-weight: 500;
+        padding: 4px !important;
+        background-color: #f8f9fa;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+    .shift-count {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #6c757d;
+        color: white;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        font-size: 0.7em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+    .shift-type {
+        font-weight: bold;
+        margin-right: 4px;
+    }
+    .caregiver-name {
+        font-size: 10px;
+        opacity: 0.9;
+    }
+    .table-responsive {
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row mb-3">
+        <div class="col">
+            <h2>Monthly View</h2>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-outline-secondary me-2" onclick="previousMonth()">Previous Month</button>
+            <button class="btn btn-outline-secondary" onclick="nextMonth()">Next Month</button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered month-grid">
+            <thead>
+                <tr>
+                    <th class="time-column">Day</th>
+                    <th class="time-header">0-2</th>
+                    <th class="time-header">2-4</th>
+                    <th class="time-header">4-6</th>
+                    <th class="time-header">6-8</th>
+                    <th class="time-header">8-10</th>
+                    <th class="time-header">10-12</th>
+                    <th class="time-header">12-14</th>
+                    <th class="time-header">14-16</th>
+                    <th class="time-header">16-18</th>
+                    <th class="time-header">18-20</th>
+                    <th class="time-header">20-22</th>
+                    <th class="time-header">22-24</th>
+                </tr>
+            </thead>
+            <tbody id="monthGrid">
+                <!-- Week rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let currentMonthStart = null;
+
+    function getMonday(date) {
+        const d = new Date(date);
+        const day = d.getDay();
+        const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+        return new Date(d.setDate(diff));
+    }
+
+    function getInitials(name) {
+        const parts = name.split(' ');
+        if (parts.length > 1) {
+            return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+        }
+        return (parts[0][0] + parts[0][parts[0].length - 1]).toUpperCase();
+    }
+
+    function formatDate(date) {
+        return `${date.toLocaleDateString('en-US', { weekday: 'short' })} ${date.getDate()}`;
+    }
+
+    function createMonthGrid() {
+        const monthGrid = document.getElementById('monthGrid');
+        monthGrid.innerHTML = '';
+        
+        // Create 4 weeks of rows
+        for (let week = 0; week < 4; week++) {
+            // Calculate week start date
+            const weekStart = new Date(currentMonthStart);
+            weekStart.setDate(weekStart.getDate() + (week * 7));
+            
+            // Create week row
+            const weekRow = document.createElement('tr');
+            
+            // Add week label
+            const weekLabel = document.createElement('td');
+            weekLabel.className = 'time-column';
+            const weekEnd = new Date(weekStart);
+            weekEnd.setDate(weekEnd.getDate() + 6);
+            weekLabel.textContent = `${weekStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${weekEnd.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
+            weekRow.appendChild(weekLabel);
+            
+            // Create cells for each time slot
+            for (let slot = 0; slot < 12; slot++) {
+                const cell = document.createElement('td');
+                cell.className = 'shift-cell';
+                
+                // Format date string consistently
+                const dateStr = weekStart.toISOString().split('T')[0];
+                
+                // Set data attributes for shift lookup
+                cell.setAttribute('data-date', dateStr);
+                cell.setAttribute('data-slot', slot);
+                
+                // Add weekend and today highlighting
+                if (isToday(weekStart)) {
+                    cell.classList.add('today');
+                }
+                if (isWeekend(weekStart)) {
+                    cell.classList.add('weekend');
+                }
+                
+                weekRow.appendChild(cell);
+            }
+            
+            monthGrid.appendChild(weekRow);
+        }
+        
+        console.log('Grid created for start date:', currentMonthStart);
+    }
+
+    function isToday(date) {
+        const today = new Date();
+        return date.toDateString() === today.toDateString();
+    }
+
+    function isWeekend(date) {
+        const day = date.getDay();
+        return day === 0 || day === 6;
+    }
+
+    function getContrastColor(hexcolor) {
+        // Convert hex to RGB
+        const r = parseInt(hexcolor.substr(1,2), 16);
+        const g = parseInt(hexcolor.substr(3,2), 16);
+        const b = parseInt(hexcolor.substr(5,2), 16);
+        
+        // Calculate luminance
+        const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        
+        return (yiq >= 128) ? '#000000' : '#ffffff';
+    }
+
+    async function loadMonthShifts(startDate) {
+        try {
+            console.log('Loading shifts from:', startDate);
+            const response = await fetch(`/api/shifts?days=28&start=${startDate}`);
+            const shifts = await response.json();
+            
+            // Clear existing shifts
+            document.querySelectorAll('.shift-block').forEach(block => block.remove());
+            
+            // Process each shift
+            shifts.forEach(shift => {
+                try {
+                    // Parse shift times
+                    const shiftDate = shift.date;
+                    const startHour = parseInt(shift.start.split(':')[0]);
+                    const endHour = parseInt(shift.end.split(':')[0]);
+                    
+                    // Calculate time slots
+                    let startSlot = Math.floor(startHour / 2);
+                    let endSlot = Math.ceil(endHour / 2);
+                    
+                    // Handle shifts crossing midnight
+                    if (endHour < startHour) {
+                        endSlot = 12; // End at last slot of the day
+                    }
+                    
+                    // Find cells for this shift
+                    for (let slot = startSlot; slot < endSlot; slot++) {
+                        const cell = document.querySelector(`td[data-date="${shiftDate}"][data-slot="${slot}"]`);
+                        if (!cell) {
+                            console.warn(`Cell not found for date ${shiftDate} slot ${slot}`);
+                            continue;
+                        }
+                        
+                        // Create shift block
+                        const block = document.createElement('div');
+                        block.className = 'shift-block';
+                        block.style.backgroundColor = shift.color || '#ccc';
+                        
+                        // Add shift info
+                        block.innerHTML = `
+                            <span class="shift-type">${shift.type}</span>
+                            <span class="caregiver-name">${shift.caregiver || 'Unassigned'}</span>
+                        `;
+                        
+                        // Add tooltip
+                        block.title = `${shift.type}: ${shift.start}-${shift.end}\n${shift.caregiver || 'Unassigned'}`;
+                        
+                        // Add click handler
+                        block.onclick = () => {
+                            window.location.href = `/weekly?date=${shiftDate}`;
+                        };
+                        
+                        cell.appendChild(block);
+                    }
+                } catch (shiftError) {
+                    console.error('Error processing shift:', shift, shiftError);
+                }
+            });
+        } catch (error) {
+            console.error('Error loading shifts:', error);
+        }
+    }
+
+    function previousMonth() {
+        currentMonthStart.setDate(currentMonthStart.getDate() - 28);
+        createMonthGrid();
+        loadMonthShifts(currentMonthStart.toISOString().split('T')[0]);
+    }
+
+    function nextMonth() {
+        currentMonthStart.setDate(currentMonthStart.getDate() + 28);
+        createMonthGrid();
+        loadMonthShifts(currentMonthStart.toISOString().split('T')[0]);
+    }
+
+    function editShift(shiftId) {
+        window.location.href = `/weekly?shift=${shiftId}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Initializing monthly view');
+        currentMonthStart = getMonday(new Date());
+        createMonthGrid();
+        loadMonthShifts(currentMonthStart.toISOString().split('T')[0]);
+    });
+</script>
+{% endblock %} 

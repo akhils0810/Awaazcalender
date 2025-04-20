@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>Caregiver Schedule View</h2>
+    </div>
+    <div class="col-md-4 text-end">
+        <button type="button" class="btn btn-primary" onclick="window.location.href='/schedule'">
+            Back to Schedule
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    {% for caregiver in caregivers %}
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header" style="background-color: {{ caregiver.color }}; color: white;">
+                <h5 class="card-title mb-0">{{ caregiver.name }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Shift</th>
+                                <th>Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+                            <tr>
+                                <td>{{ day }}</td>
+                                <td>
+                                    {% set shift_found = false %}
+                                    {% for shift in shifts %}
+                                        {% if shift.caregiver_id == caregiver.id and shift.day == loop.index0 %}
+                                            {{ shift.shift_type }} ({{ shift_definitions[shift.shift_type].start }}-{{ shift_definitions[shift.shift_type].end }})
+                                            {% set shift_found = true %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if not shift_found %}
+                                        <span class="text-muted">Off</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if shift_found %}
+                                        {% set shift_type = shifts|selectattr('caregiver_id', 'equalto', caregiver.id)|selectattr('day', 'equalto', loop.index0)|first %}
+                                        {% if shift_type %}
+                                            {% set start_time = shift_definitions[shift_type.shift_type].start %}
+                                            {% set end_time = shift_definitions[shift_type.shift_type].end %}
+                                            {% set start_hour = start_time.split(':')[0]|int %}
+                                            {% set end_hour = end_time.split(':')[0]|int %}
+                                            {% if end_hour < start_hour %}
+                                                {% set end_hour = end_hour + 24 %}
+                                            {% endif %}
+                                            {{ end_hour - start_hour }}
+                                        {% endif %}
+                                    {% else %}
+                                        0
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="2">Total Hours</th>
+                                <th>{{ caregiver.total_hours|default(0) }}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %} 

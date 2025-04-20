@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="text-center mb-5">
+            <h1>Welcome to Caregiver Scheduler</h1>
+            <p class="lead">Manage your 24/7 group home staffing schedule efficiently</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Schedule Grid</h5>
+                        <p class="card-text">Create and manage weekly schedules with our easy-to-use grid interface. Organize shifts, manage caregivers, and maintain templates all in one place.</p>
+                        <a href="/schedule" class="btn btn-primary">Go to Schedule Grid</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Features</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li>✓ Weekly schedule editor</li>
+                                    <li>✓ Automatic hours calculation</li>
+                                    <li>✓ Shift overlap detection</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li>✓ Template management</li>
+                                    <li>✓ Caregiver management</li>
+                                    <li>✓ Mobile-friendly interface</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

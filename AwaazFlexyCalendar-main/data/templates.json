@@ -1,0 +1,1074 @@
+[
+  {
+    "name": "Turlock-schedule-320",
+    "shifts": [
+      {
+        "caregiver_id": "5",
+        "day": 0,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 1,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 2,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 3,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 4,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 5,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 6,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "9",
+        "day": 0,
+        "shift_type": "A2"
+      },
+      {
+        "caregiver_id": "10",
+        "day": 1,
+        "shift_type": "A2"
+      },
+      {
+        "caregiver_id": "10",
+        "day": 2,
+        "shift_type": "A2"
+      },
+      {
+        "caregiver_id": "9",
+        "day": 3,
+        "shift_type": "A2"
+      },
+      {
+        "caregiver_id": "10",
+        "day": 4,
+        "shift_type": "A2"
+      },
+      {
+        "caregiver_id": "10",
+        "day": 5,
+        "shift_type": "A2"
+      },
+      {
+        "caregiver_id": "10",
+        "day": 6,
+        "shift_type": "A2"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 0,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 1,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 2,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 3,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 4,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 5,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 6,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 0,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 1,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 2,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 3,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 4,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "11",
+        "day": 5,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "11",
+        "day": 6,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 0,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 1,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 2,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 3,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "11",
+        "day": 4,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 0,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 1,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 2,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 3,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 4,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 5,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 6,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 0,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 1,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 2,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 3,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "9",
+        "day": 4,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "9",
+        "day": 5,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "9",
+        "day": 6,
+        "shift_type": "B3"
+      }
+    ],
+    "id": "14"
+  },
+  {
+    "name": "Turlock- April21-May18",
+    "shifts": [
+      {
+        "caregiver_id": "5",
+        "day": 0,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 1,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 2,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 3,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 4,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 5,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 6,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 0,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 1,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 2,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 3,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 4,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 5,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 6,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 0,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 1,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 2,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 3,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "11",
+        "day": 4,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "11",
+        "day": 5,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "11",
+        "day": 6,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 0,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 1,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 0,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 1,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 2,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 3,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 4,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 5,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 6,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 0,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 1,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 2,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 3,
+        "shift_type": "B3"
+      }
+    ],
+    "id": "15"
+  },
+  {
+    "name": "Turlock April 21- May 18 -Take #2",
+    "shifts": [
+      {
+        "caregiver_id": "3",
+        "day": 0,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 1,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 2,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 3,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 4,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 5,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 6,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 0,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 1,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 2,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 3,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 4,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 5,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 6,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 0,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 1,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 2,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 3,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 4,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "11",
+        "day": 5,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "11",
+        "day": 6,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 1,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "11",
+        "day": 4,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 0,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 1,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 2,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 3,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 4,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 5,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 6,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 0,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 1,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 2,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 3,
+        "shift_type": "B3"
+      }
+    ],
+    "id": "16"
+  },
+  {
+    "name": "test123",
+    "shifts": [
+      {
+        "caregiver_id": "9",
+        "day": 0,
+        "shift_type": "A1"
+      }
+    ],
+    "id": "17"
+  },
+  {
+    "name": "GroupHome-Capacity-3 (256 hrs/week)",
+    "shifts": [
+      {
+        "caregiver_id": "3",
+        "day": 0,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 1,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 2,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 3,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 4,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 5,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 6,
+        "shift_type": "A1"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 0,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 1,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 2,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 3,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 4,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 5,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 6,
+        "shift_type": "A3"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 0,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 1,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 2,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 3,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 4,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 5,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "7",
+        "day": 6,
+        "shift_type": "G"
+      },
+      {
+        "caregiver_id": "6",
+        "day": 1,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 4,
+        "shift_type": "B1"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 0,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "3",
+        "day": 1,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 2,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 3,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 4,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "1",
+        "day": 5,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "5",
+        "day": 6,
+        "shift_type": "B2"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 0,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 1,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 2,
+        "shift_type": "B3"
+      },
+      {
+        "caregiver_id": "8",
+        "day": 3,
+        "shift_type": "B3"
+      }
+    ],
+    "id": "18"
+  },
+  {
+    "name": "Week of April 21",
+    "shifts": [
+      {
+        "day": "Monday",
+        "caregiver_id": "3",
+        "shift_type": "A1"
+      },
+      {
+        "day": "Monday",
+        "caregiver_id": "6",
+        "shift_type": "A3"
+      },
+      {
+        "day": "Monday",
+        "caregiver_id": "5",
+        "shift_type": "B2"
+      },
+      {
+        "day": "Monday",
+        "caregiver_id": "8",
+        "shift_type": "B3"
+      },
+      {
+        "day": "Monday",
+        "caregiver_id": "7",
+        "shift_type": "G"
+      },
+      {
+        "day": "Tuesday",
+        "caregiver_id": "1",
+        "shift_type": "A1"
+      },
+      {
+        "day": "Tuesday",
+        "caregiver_id": "2",
+        "shift_type": "A3"
+      },
+      {
+        "day": "Tuesday",
+        "caregiver_id": "6",
+        "shift_type": "B1"
+      },
+      {
+        "day": "Tuesday",
+        "caregiver_id": "3",
+        "shift_type": "B2"
+      },
+      {
+        "day": "Tuesday",
+        "caregiver_id": "8",
+        "shift_type": "B3"
+      },
+      {
+        "day": "Tuesday",
+        "caregiver_id": "7",
+        "shift_type": "G"
+      },
+      {
+        "day": "Wednesday",
+        "caregiver_id": "5",
+        "shift_type": "A1"
+      },
+      {
+        "day": "Wednesday",
+        "caregiver_id": "2",
+        "shift_type": "A3"
+      },
+      {
+        "day": "Wednesday",
+        "caregiver_id": "1",
+        "shift_type": "B2"
+      },
+      {
+        "day": "Wednesday",
+        "caregiver_id": "8",
+        "shift_type": "B3"
+      },
+      {
+        "day": "Wednesday",
+        "caregiver_id": "7",
+        "shift_type": "G"
+      },
+      {
+        "day": "Thursday",
+        "caregiver_id": "3",
+        "shift_type": "A1"
+      },
+      {
+        "day": "Thursday",
+        "caregiver_id": "2",
+        "shift_type": "A3"
+      },
+      {
+        "day": "Thursday",
+        "caregiver_id": "1",
+        "shift_type": "B2"
+      },
+      {
+        "day": "Thursday",
+        "caregiver_id": "8",
+        "shift_type": "B3"
+      },
+      {
+        "day": "Thursday",
+        "caregiver_id": "7",
+        "shift_type": "G"
+      },
+      {
+        "day": "Friday",
+        "caregiver_id": "3",
+        "shift_type": "A1"
+      },
+      {
+        "day": "Friday",
+        "caregiver_id": "6",
+        "shift_type": "A3"
+      },
+      {
+        "day": "Friday",
+        "caregiver_id": "5",
+        "shift_type": "B1"
+      },
+      {
+        "day": "Friday",
+        "caregiver_id": "1",
+        "shift_type": "B2"
+      },
+      {
+        "day": "Friday",
+        "caregiver_id": "2",
+        "shift_type": "G"
+      },
+      {
+        "day": "Saturday",
+        "caregiver_id": "2",
+        "shift_type": "A1"
+      },
+      {
+        "day": "Saturday",
+        "caregiver_id": "6",
+        "shift_type": "A3"
+      },
+      {
+        "day": "Saturday",
+        "caregiver_id": "1",
+        "shift_type": "B2"
+      },
+      {
+        "day": "Saturday",
+        "caregiver_id": "5",
+        "shift_type": "G"
+      },
+      {
+        "day": "Sunday",
+        "caregiver_id": "3",
+        "shift_type": "A1"
+      },
+      {
+        "day": "Sunday",
+        "caregiver_id": "6",
+        "shift_type": "A3"
+      },
+      {
+        "day": "Sunday",
+        "caregiver_id": "5",
+        "shift_type": "B2"
+      },
+      {
+        "day": "Sunday",
+        "caregiver_id": "7",
+        "shift_type": "G"
+      }
+    ],
+    "id": "19"
+  },
+  {
+    "name": "Test Weekly Template",
+    "shifts": [
+      {
+        "caregiver_id": "1",
+        "day": 0,
+        "shift_type": "A1",
+        "caregiver_name": "Kisha",
+        "color": "#1e1e1e"
+      },
+      {
+        "caregiver_id": "2",
+        "day": 2,
+        "shift_type": "B1",
+        "caregiver_name": "MariaB",
+        "color": "#3c3c3c"
+      }
+    ],
+    "id": "20"
+  },
+  {
+    "name": "Sanjose -Phase 1",
+    "shifts": [
+      {
+        "caregiver_id": "4",
+        "day": 6,
+        "shift_type": "A3",
+        "caregiver_name": "Fatima",
+        "color": "#787878"
+      },
+      {
+        "caregiver_id": "4",
+        "day": 0,
+        "shift_type": "B1",
+        "caregiver_name": "Fatima",
+        "color": "#787878"
+      },
+      {
+        "caregiver_id": "4",
+        "day": 1,
+        "shift_type": "B1",
+        "caregiver_name": "Fatima",
+        "color": "#787878"
+      },
+      {
+        "caregiver_id": "4",
+        "day": 2,
+        "shift_type": "B1",
+        "caregiver_name": "Fatima",
+        "color": "#787878"
+      }
+    ],
+    "id": "21"
+  },
+  {
+    "name": "SJ_TR_Apr25",
+    "shifts": [
+      {
+        "caregiver_id": "4",
+        "day": 6,
+        "shift_type": "A3",
+        "caregiver_name": "Fatima",
+        "color": "#787878"
+      },
+      {
+        "caregiver_id": "9",
+        "day": 5,
+        "shift_type": "G",
+        "caregiver_name": "CG8",
+        "color": "#3788d8"
+      },
+      {
+        "caregiver_id": "9",
+        "day": 6,
+        "shift_type": "G",
+        "caregiver_name": "CG8",
+        "color": "#3788d8"
+      },
+      {
+        "caregiver_id": "4",
+        "day": 0,
+        "shift_type": "B1",
+        "caregiver_name": "Fatima",
+        "color": "#787878"
+      },
+      {
+        "caregiver_id": "4",
+        "day": 1,
+        "shift_type": "B1",
+        "caregiver_name": "Fatima",
+        "color": "#787878"
+      },
+      {
+        "caregiver_id": "4",
+        "day": 2,
+        "shift_type": "B1",
+        "caregiver_name": "Fatima",
+        "color": "#787878"
+      },
+      {
+        "caregiver_id": "10",
+        "day": 5,
+        "shift_type": "B1",
+        "caregiver_name": "CG9",
+        "color": "#3788d8"
+      },
+      {
+        "caregiver_id": "10",
+        "day": 6,
+        "shift_type": "B1",
+        "caregiver_name": "CG9",
+        "color": "#3788d8"
+      }
+    ],
+    "id": "22"
+  }
+]

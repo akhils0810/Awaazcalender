@@ -1,0 +1,697 @@
+{% extends "base.html" %}
+
+{% block title %}Hourly View{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hourly-grid {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    .hourly-grid th, .hourly-grid td {
+        border: 1px solid #dee2e6;
+        padding: 0;
+        height: 40px;
+        position: relative;
+    }
+    .time-column {
+        width: 60px;
+        background-color: #f8f9fa;
+        font-weight: 500;
+        font-size: 0.85em;
+        text-align: center;
+        position: sticky;
+        left: 0;
+        z-index: 2;
+    }
+    .date-header {
+        text-align: center;
+        font-size: 0.85em;
+        font-weight: 500;
+        padding: 8px 4px !important;
+        background-color: #f8f9fa;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+    .date-header-day {
+        font-weight: 600;
+    }
+    .date-header-date {
+        font-size: 0.85em;
+        color: #6c757d;
+    }
+    .shift-cell {
+        padding: 0 !important;
+    }
+    .shift-item {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        border-radius: 4px;
+        font-size: 0.7em;
+        line-height: 1;
+        padding: 3px 4px;
+        color: white;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        box-sizing: border-box;
+        z-index: 1;
+        text-shadow: 0 0 2px rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .shift-item:hover {
+        z-index: 10;
+        transform: scale(1.02);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .shift-cell.weekend {
+        background-color: #f8f9fa30;
+    }
+    .shift-cell.today {
+        background-color: #fff3cd30;
+    }
+    .shift-item .initials {
+        font-weight: 700;
+        margin-right: 2px;
+    }
+    .shift-type {
+        font-weight: bold;
+    }
+    .controls {
+        margin-bottom: 1rem;
+    }
+    /* Grid lines for 2-hour intervals */
+    .hourly-grid td {
+        border-right: 1px dotted #dee2e6;
+    }
+    .hourly-grid td:nth-child(2n+1) {
+        border-right: 1px solid #dee2e6;
+    }
+    .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .legend-item {
+        display: flex;
+        align-items: center;
+        font-size: 0.8em;
+    }
+    .legend-color {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        border-radius: 3px;
+    }
+    .modal-form-group {
+        margin-bottom: 15px;
+    }
+    .modal-form-group label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        display: block;
+    }
+    .template-select {
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col">
+            <h2>Hourly Schedule View</h2>
+        </div>
+    </div>
+
+    <div class="row controls">
+        <div class="col-md-2">
+            <button class="btn btn-outline-secondary" id="prevDayBtn">&laquo; Previous</button>
+        </div>
+        <div class="col-md-3">
+            <input type="date" id="dateInput" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-outline-secondary" id="nextDayBtn">Next &raquo;</button>
+        </div>
+        <div class="col-md-3">
+            <select id="templateSelect" class="form-select template-select">
+                <option value="">-- Apply Template --</option>
+                {% for template in templates %}
+                <option value="{{ template.id }}">{{ template.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary" id="addShiftBtn">Add Shift</button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table hourly-grid">
+            <thead>
+                <tr>
+                    <th class="time-column">Hour</th>
+                    <!-- Date headers will be added dynamically -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Hour rows will be added dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="legend">
+        <h5 class="w-100">Caregiver Legend:</h5>
+        {% for caregiver in caregivers %}
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: {{ caregiver.color }};"></div>
+            <span>{{ caregiver.name }} ({{ caregiver.name|getInitials }})</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Add/Edit Shift Modal -->
+<div class="modal fade" id="shiftModal" tabindex="-1" aria-labelledby="shiftModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shiftModalLabel">Add Shift</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="shiftForm">
+                    <input type="hidden" id="editShiftId">
+                    <div class="modal-form-group">
+                        <label for="shiftDate">Date</label>
+                        <input type="date" id="shiftDate" class="form-control" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="shiftType">Shift Type</label>
+                        <select id="shiftType" class="form-select" required>
+                            {% for type, times in shift_definitions.items() %}
+                            <option value="{{ type }}">{{ type }} ({{ times.start }} - {{ times.end }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="shiftCaregiver">Caregiver</label>
+                        <select id="shiftCaregiver" class="form-select" required>
+                            {% for caregiver in caregivers %}
+                            <option value="{{ caregiver.id }}">{{ caregiver.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="shiftStart">Start Time (24h)</label>
+                        <input type="time" id="shiftStart" class="form-control" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="shiftEnd">End Time (24h)</label>
+                        <input type="time" id="shiftEnd" class="form-control" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="deleteShiftBtn" style="display: none;">Delete</button>
+                <button type="button" class="btn btn-primary" id="saveShiftBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Constants
+    const HOURS_IN_DAY = 24;
+    const HOUR_INTERVAL = 2; // 2-hour granularity
+    const CELL_HEIGHT = 40; // Height of each cell in pixels
+    const DAYS_TO_SHOW = 3; // Number of days to show in the view
+
+    // Initialize date
+    let currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+
+    // DOM elements
+    const hourlyGrid = document.querySelector('.hourly-grid tbody');
+    const headerRow = document.querySelector('.hourly-grid thead tr');
+    const dateInput = document.getElementById('dateInput');
+    const prevDayBtn = document.getElementById('prevDayBtn');
+    const nextDayBtn = document.getElementById('nextDayBtn');
+    const templateSelect = document.getElementById('templateSelect');
+    const addShiftBtn = document.getElementById('addShiftBtn');
+    
+    // Modal elements
+    const shiftModal = new bootstrap.Modal(document.getElementById('shiftModal'));
+    const shiftForm = document.getElementById('shiftForm');
+    const editShiftId = document.getElementById('editShiftId');
+    const shiftDate = document.getElementById('shiftDate');
+    const shiftType = document.getElementById('shiftType');
+    const shiftCaregiver = document.getElementById('shiftCaregiver');
+    const shiftStart = document.getElementById('shiftStart');
+    const shiftEnd = document.getElementById('shiftEnd');
+    const saveShiftBtn = document.getElementById('saveShiftBtn');
+    const deleteShiftBtn = document.getElementById('deleteShiftBtn');
+    
+    // Shift definitions from Flask
+    const shiftDefinitions = {{ shift_definitions|tojson }};
+    
+    // Event listeners
+    dateInput.addEventListener('change', () => {
+        currentDate = new Date(dateInput.value);
+        renderCalendar();
+    });
+    
+    prevDayBtn.addEventListener('click', () => {
+        currentDate.setDate(currentDate.getDate() - DAYS_TO_SHOW);
+        dateInput.value = formatDateForInput(currentDate);
+        renderCalendar();
+    });
+    
+    nextDayBtn.addEventListener('click', () => {
+        currentDate.setDate(currentDate.getDate() + DAYS_TO_SHOW);
+        dateInput.value = formatDateForInput(currentDate);
+        renderCalendar();
+    });
+    
+    templateSelect.addEventListener('change', function() {
+        if (this.value) {
+            const templateId = this.value;
+            if (confirm('Are you sure you want to apply this template? This will replace any existing shifts for the selected days.')) {
+                applyTemplate(templateId);
+            }
+            this.value = ''; // Reset select
+        }
+    });
+    
+    addShiftBtn.addEventListener('click', () => {
+        // Reset form for adding a new shift
+        editShiftId.value = '';
+        shiftDate.value = formatDateForInput(currentDate);
+        shiftType.value = 'A3'; // Default shift type
+        
+        // Set default start and end times based on shift type
+        updateShiftTimes();
+        
+        // Show modal for adding
+        document.getElementById('shiftModalLabel').textContent = 'Add Shift';
+        deleteShiftBtn.style.display = 'none';
+        shiftModal.show();
+    });
+    
+    shiftType.addEventListener('change', updateShiftTimes);
+    
+    saveShiftBtn.addEventListener('click', saveShift);
+    deleteShiftBtn.addEventListener('click', deleteShift);
+    
+    // Helper functions
+    function formatDateForInput(date) {
+        return date.toISOString().split('T')[0];
+    }
+    
+    function formatDateForDisplay(date) {
+        return date.toLocaleDateString('en-US', {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric'
+        });
+    }
+    
+    function updateShiftTimes() {
+        const selected = shiftType.value;
+        if (selected && shiftDefinitions[selected]) {
+            shiftStart.value = shiftDefinitions[selected].start;
+            shiftEnd.value = shiftDefinitions[selected].end;
+        }
+    }
+    
+    function createHourLabel(hour) {
+        return `${hour.toString().padStart(2, '0')}:00`;
+    }
+    
+    function isToday(date) {
+        const today = new Date();
+        return date.getDate() === today.getDate() && 
+               date.getMonth() === today.getMonth() && 
+               date.getFullYear() === today.getFullYear();
+    }
+    
+    function isWeekend(date) {
+        const day = date.getDay();
+        return day === 0 || day === 6; // 0 is Sunday, 6 is Saturday
+    }
+    
+    function renderCalendar() {
+        // Set the date input value
+        dateInput.value = formatDateForInput(currentDate);
+        
+        // Clear existing table
+        while (hourlyGrid.firstChild) {
+            hourlyGrid.removeChild(hourlyGrid.firstChild);
+        }
+        
+        // Reset header row (keep time column)
+        while (headerRow.children.length > 1) {
+            headerRow.removeChild(headerRow.lastChild);
+        }
+        
+        // Create date headers
+        for (let i = 0; i < DAYS_TO_SHOW; i++) {
+            const date = new Date(currentDate);
+            date.setDate(date.getDate() + i);
+            
+            const th = document.createElement('th');
+            th.className = 'date-header';
+            th.colSpan = HOURS_IN_DAY / HOUR_INTERVAL;
+            th.innerHTML = `
+                <div class="date-header-day">${date.toLocaleDateString('en-US', {weekday: 'long'})}</div>
+                <div class="date-header-date">${date.toLocaleDateString('en-US', {month: 'short', day: 'numeric'})}</div>
+            `;
+            headerRow.appendChild(th);
+        }
+        
+        // Create hour rows
+        for (let hour = 0; hour < HOURS_IN_DAY; hour += HOUR_INTERVAL) {
+            const row = document.createElement('tr');
+            
+            // Hour label column
+            const timeCell = document.createElement('td');
+            timeCell.className = 'time-column';
+            timeCell.textContent = `${hour.toString().padStart(2, '0')}-${(hour + HOUR_INTERVAL).toString().padStart(2, '0')}`;
+            row.appendChild(timeCell);
+            
+            // Create cells for each day
+            for (let day = 0; day < DAYS_TO_SHOW; day++) {
+                const date = new Date(currentDate);
+                date.setDate(date.getDate() + day);
+                
+                const cell = document.createElement('td');
+                cell.className = 'shift-cell';
+                cell.dataset.date = formatDateForInput(date);
+                cell.dataset.hour = hour;
+                
+                // Add special classes
+                if (isToday(date)) {
+                    cell.classList.add('today');
+                }
+                if (isWeekend(date)) {
+                    cell.classList.add('weekend');
+                }
+                
+                // Add click handler for adding shifts
+                cell.addEventListener('click', (e) => {
+                    // Only handle clicks on the cell itself, not on shift items
+                    if (e.target === cell) {
+                        editShiftId.value = '';
+                        shiftDate.value = cell.dataset.date;
+                        
+                        // Set time based on clicked hour
+                        const startHour = parseInt(cell.dataset.hour);
+                        shiftStart.value = `${startHour.toString().padStart(2, '0')}:00`;
+                        shiftEnd.value = `${(startHour + HOUR_INTERVAL).toString().padStart(2, '0')}:00`;
+                        
+                        // Show modal for adding
+                        document.getElementById('shiftModalLabel').textContent = 'Add Shift';
+                        deleteShiftBtn.style.display = 'none';
+                        shiftModal.show();
+                    }
+                });
+                
+                row.appendChild(cell);
+            }
+            
+            hourlyGrid.appendChild(row);
+        }
+        
+        // Load shifts for this date range
+        loadShifts();
+    }
+    
+    function loadShifts() {
+        // Calculate date range
+        const startDate = formatDateForInput(currentDate);
+        const endDate = new Date(currentDate);
+        endDate.setDate(endDate.getDate() + DAYS_TO_SHOW - 1);
+        const endDateStr = formatDateForInput(endDate);
+        
+        // Fetch shifts from API
+        fetch(`/api/shifts?start=${startDate}&end=${endDateStr}`)
+            .then(response => response.json())
+            .then(shifts => {
+                renderShifts(shifts);
+            })
+            .catch(error => {
+                console.error('Error loading shifts:', error);
+                alert('Failed to load shifts. Please try again.');
+            });
+    }
+    
+    function renderShifts(shifts) {
+        // Create a map of caregivers for faster lookup
+        const caregivers = {};
+        {{ caregivers|tojson }}.forEach(caregiver => {
+            caregivers[caregiver.id] = caregiver;
+        });
+        
+        shifts.forEach(shift => {
+            // Get caregiver data
+            const caregiver = caregivers[shift.caregiver_id] || {
+                name: 'Unknown',
+                color: '#999999'
+            };
+            
+            // Calculate position and height
+            const startDate = new Date(shift.start);
+            const endDate = new Date(shift.end);
+            
+            // Skip shifts that span multiple days for simplicity
+            // In a real implementation, you'd handle multi-day shifts properly
+            if (startDate.getDate() !== endDate.getDate() && shift.shift_type !== 'A1') {
+                console.log('Skipping multi-day shift:', shift);
+                return;
+            }
+            
+            // Calculate grid positions
+            const startHour = startDate.getHours();
+            const startMinute = startDate.getMinutes();
+            const endHour = endDate.getHours();
+            const endMinute = endDate.getMinutes();
+            
+            const startTotalMinutes = startHour * 60 + startMinute;
+            const endTotalMinutes = endHour * 60 + endMinute;
+            let durationMinutes = endTotalMinutes - startTotalMinutes;
+            
+            // Handle overnight shifts
+            if (durationMinutes <= 0) {
+                durationMinutes += 24 * 60;
+            }
+            
+            // Find the cell where this shift starts
+            const dayDiff = Math.floor((startDate - currentDate) / (24 * 60 * 60 * 1000));
+            if (dayDiff < 0 || dayDiff >= DAYS_TO_SHOW) {
+                return; // Skip shifts outside our view
+            }
+            
+            // Find all cells this shift spans
+            const rowStartHour = Math.floor(startHour / HOUR_INTERVAL) * HOUR_INTERVAL;
+            const cells = Array.from(document.querySelectorAll(`.shift-cell[data-date="${formatDateForInput(startDate)}"]`))
+                .filter(cell => parseInt(cell.dataset.hour) >= rowStartHour && 
+                               parseInt(cell.dataset.hour) < endHour);
+            
+            if (cells.length === 0) return;
+            
+            // Calculate top offset within the first cell (in percentage)
+            const startOffsetPercent = ((startHour % HOUR_INTERVAL) * 60 + startMinute) / (HOUR_INTERVAL * 60) * 100;
+            
+            // Calculate height (in percentage)
+            const heightPercent = Math.min(durationMinutes / (HOUR_INTERVAL * 60) * 100, 96);
+            
+            // Create shift item element
+            const shiftItem = document.createElement('div');
+            shiftItem.className = 'shift-item';
+            shiftItem.dataset.shiftId = shift.id;
+            shiftItem.style.backgroundColor = caregiver.color;
+            shiftItem.style.top = `${startOffsetPercent}%`;
+            shiftItem.style.height = `${heightPercent}%`;
+            
+            // Get caregiver initials for display
+            const nameParts = caregiver.name.split(' ');
+            let initials = '';
+            if (nameParts.length > 1) {
+                initials = `${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`;
+            } else {
+                initials = `${caregiver.name[0]}${caregiver.name[caregiver.name.length - 1]}`;
+            }
+            
+            // Set content
+            shiftItem.innerHTML = `<span class="initials">${initials}</span> ${shift.shift_type}`;
+            
+            // Add click handler for editing
+            shiftItem.addEventListener('click', (e) => {
+                e.stopPropagation();
+                editShift(shift.id);
+            });
+            
+            // Add to first cell
+            cells[0].appendChild(shiftItem);
+        });
+    }
+    
+    function editShift(shiftId) {
+        // Fetch shift details
+        fetch(`/api/shifts/${shiftId}`)
+            .then(response => response.json())
+            .then(shift => {
+                // Fill form with shift data
+                editShiftId.value = shift.id;
+                
+                const startDate = new Date(shift.start);
+                shiftDate.value = formatDateForInput(startDate);
+                shiftType.value = shift.shift_type;
+                shiftCaregiver.value = shift.caregiver_id;
+                
+                // Set times
+                const startTime = startDate.toTimeString().substring(0, 5);
+                const endDate = new Date(shift.end);
+                const endTime = endDate.toTimeString().substring(0, 5);
+                
+                shiftStart.value = startTime;
+                shiftEnd.value = endTime;
+                
+                // Show modal for editing
+                document.getElementById('shiftModalLabel').textContent = 'Edit Shift';
+                deleteShiftBtn.style.display = 'block';
+                shiftModal.show();
+            })
+            .catch(error => {
+                console.error('Error fetching shift details:', error);
+                alert('Failed to load shift details. Please try again.');
+            });
+    }
+    
+    function saveShift() {
+        // Validate form
+        if (!shiftForm.checkValidity()) {
+            shiftForm.reportValidity();
+            return;
+        }
+        
+        // Prepare shift data
+        const shiftData = {
+            caregiver_id: shiftCaregiver.value,
+            shift_type: shiftType.value,
+            start: `${shiftDate.value} ${shiftStart.value}`,
+            end: `${shiftDate.value} ${shiftEnd.value}`
+        };
+        
+        // Determine if this is an add or update operation
+        const isUpdate = !!editShiftId.value;
+        const url = isUpdate ? `/api/shifts/${editShiftId.value}` : '/api/shifts';
+        const method = isUpdate ? 'PUT' : 'POST';
+        
+        // Send request
+        fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(shiftData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Failed to save shift');
+                });
+            }
+            return response.json();
+        })
+        .then(() => {
+            // Close modal and refresh
+            shiftModal.hide();
+            renderCalendar();
+        })
+        .catch(error => {
+            console.error('Error saving shift:', error);
+            alert(error.message || 'Failed to save shift. Please try again.');
+        });
+    }
+    
+    function deleteShift() {
+        if (!editShiftId.value || !confirm('Are you sure you want to delete this shift?')) {
+            return;
+        }
+        
+        fetch(`/api/shifts/${editShiftId.value}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Failed to delete shift');
+                });
+            }
+            return response.json();
+        })
+        .then(() => {
+            // Close modal and refresh
+            shiftModal.hide();
+            renderCalendar();
+        })
+        .catch(error => {
+            console.error('Error deleting shift:', error);
+            alert(error.message || 'Failed to delete shift. Please try again.');
+        });
+    }
+    
+    function applyTemplate(templateId) {
+        // Calculate date range
+        const startDate = formatDateForInput(currentDate);
+        
+        // Number of weeks to generate (covering our view days)
+        const weeksNeeded = Math.ceil(DAYS_TO_SHOW / 7);
+        
+        // Send request to apply template
+        fetch(`/api/templates/${templateId}/apply`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                start_date: startDate,
+                num_weeks: weeksNeeded
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Failed to apply template');
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert(data.message || 'Template applied successfully');
+            renderCalendar();
+        })
+        .catch(error => {
+            console.error('Error applying template:', error);
+            alert(error.message || 'Failed to apply template. Please try again.');
+        });
+    }
+    
+    // Initialize calendar
+    renderCalendar();
+</script>
+{% endblock %} 

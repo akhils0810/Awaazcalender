@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Kisha",
+    "max_hours": 40,
+    "color": "#1e1e1e"
+  },
+  {
+    "id": 2,
+    "name": "MariaB",
+    "max_hours": 40,
+    "color": "#3c3c3c"
+  },
+  {
+    "id": 3,
+    "name": "Amanda",
+    "max_hours": 40,
+    "color": "#5a5a5a"
+  },
+  {
+    "id": 4,
+    "name": "Fatima",
+    "max_hours": 40,
+    "color": "#787878"
+  },
+  {
+    "id": 5,
+    "name": "Michelle",
+    "max_hours": 40,
+    "color": "#969696"
+  },
+  {
+    "id": 6,
+    "name": "MariaH",
+    "max_hours": 40,
+    "color": "#b4b4b4"
+  },
+  {
+    "id": 7,
+    "name": "Tae",
+    "max_hours": 40,
+    "color": "#d2d2d2"
+  },
+  {
+    "id": 8,
+    "name": "Shyala",
+    "max_hours": 40,
+    "color": "#3788d8"
+  },
+  {
+    "id": 9,
+    "name": "CG8",
+    "max_hours": 40,
+    "color": "#3788d8"
+  },
+  {
+    "id": 10,
+    "name": "CG9",
+    "max_hours": 40,
+    "color": "#3788d8"
+  },
+  {
+    "id": 11,
+    "name": "CG10",
+    "max_hours": 40,
+    "color": "#3788d8"
+  },
+  {
+    "id": 12,
+    "name": "CG11",
+    "max_hours": 40,
+    "color": "#3788d8"
+  },
+  {
+    "id": 13,
+    "name": "CG12",
+    "max_hours": 40,
+    "color": "#3788d8"
+  }
+]

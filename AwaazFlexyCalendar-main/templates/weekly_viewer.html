@@ -1,0 +1,545 @@
+{% extends "base.html" %}
+
+{% block title %}Weekly Viewer{% endblock %}
+
+{% block extra_css %}
+<style>
+    .week-grid {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .week-grid th {
+        text-align: center;
+        min-width: 150px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        padding: 12px 8px;
+    }
+    .week-grid td {
+        border: 1px solid #dee2e6;
+        padding: 4px;
+        vertical-align: middle;
+    }
+    .week-grid td:first-child {
+        background-color: #f8f9fa;
+        font-weight: 500;
+    }
+    .shift-cell {
+        padding: 8px 12px;
+        margin: 2px;
+        border-radius: 6px;
+        min-height: 40px;
+        font-weight: 500;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .shift-type {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 4px;
+    }
+    .shift-time {
+        color: #666;
+        font-size: 0.85em;
+    }
+    .loading-spinner {
+        display: none;
+        text-align: center;
+        margin: 20px;
+    }
+    /* Ensure text is always readable regardless of background color */
+    .shift-cell {
+        color: #000;
+        text-shadow: 
+            0 0 2px rgba(255,255,255,0.8),
+            0 0 3px rgba(255,255,255,0.7);
+    }
+    .date-header {
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+    .weekday {
+        display: block;
+        margin-bottom: 4px;
+    }
+    .date {
+        font-size: 0.9em;
+        color: #666;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col">
+            <h2>Weekly Viewer</h2>
+            </div>
+        <div class="col-auto">
+            <button class="btn btn-primary me-2" onclick="saveAsTemplate()">Save as Template</button>
+            <button class="btn btn-success" onclick="saveWeek()">Save Changes</button>
+        </div>
+    </div>
+
+    <div id="loadingSpinner" class="text-center">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <table class="table table-bordered" id="scheduleTable">
+            <thead>
+                <tr>
+                <th>Shift Type</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody id="scheduleGrid">
+            </tbody>
+        </table>
+    </div>
+
+<script>
+    const SHIFT_DEFINITIONS = {
+        'A1': { start: '00:01', end: '08:00' },
+        'A2': { start: '06:00', end: '10:00' },
+        'A3': { start: '06:00', end: '14:00' },
+        'G': { start: '10:00', end: '18:00' },
+        'B1': { start: '14:00', end: '22:00' },
+        'B2': { start: '16:00', end: '23:59' },
+        'B3': { start: '18:00', end: '22:00' }
+    };
+
+    const DAYS_ORDER = [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+    ];
+
+    // Track the current week start date
+    let currentWeekStart = null;
+
+    // Function to save the current schedule as a template
+    function saveAsTemplate() {
+        // Prompt for template name
+        const templateName = prompt("Enter a name for this template:");
+        if (!templateName || templateName.trim() === "") {
+            return; // User cancelled or entered empty name
+        }
+        
+        // Collect shifts from the grid
+        const templateShifts = [];
+        const rows = document.getElementById('scheduleGrid').children;
+        
+        Array.from(rows).forEach(row => {
+            // Get shift type from first cell
+            const shiftType = row.children[0].textContent.trim();
+            
+            // Check each day cell (1-7 representing Monday-Sunday)
+            for (let dayIndex = 1; dayIndex <= 7; dayIndex++) {
+                const cell = row.children[dayIndex];
+                const shiftBlock = cell?.querySelector('.shift-cell');
+                
+                if (shiftBlock) {
+                    // Get caregiver name from the shift-type div (it contains caregiver name in this template)
+                    const caregiverName = shiftBlock.querySelector('.shift-type').textContent.trim();
+                    
+                    // Find caregiver ID by name
+                    fetch('/api/caregivers')
+                        .then(response => response.json())
+                        .then(caregivers => {
+                            const caregiver = caregivers.find(c => c.name === caregiverName);
+                            if (caregiver) {
+                                // Add shift to template - the key is using dayIndex-1 (0-6) for the day value
+                                templateShifts.push({
+                                    caregiver_id: caregiver.id.toString(),
+                                    day: dayIndex - 1, // Convert to 0-based index (0=Monday, 6=Sunday)
+                                    shift_type: shiftType
+                                });
+                            }
+                        });
+                }
+            }
+        });
+        
+        // Wait for all caregiver lookups to complete
+        setTimeout(() => {
+            // Create template object
+            const template = {
+                name: templateName,
+                shifts: templateShifts
+            };
+            
+            // Save template
+            fetch('/api/templates', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(template)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    showMessage(`Error saving template: ${data.error}`, true);
+                } else {
+                    showMessage('Template saved successfully');
+                }
+            })
+            .catch(error => {
+                console.error('Error saving template:', error);
+                showMessage('Failed to save template', true);
+            });
+        }, 500); // Give time for caregiver lookups to complete
+    }
+
+    async function loadWeek(startDate) {
+        try {
+            document.getElementById('loadingSpinner').style.display = 'block';
+            
+            // Clear existing grid
+            const grid = document.getElementById('scheduleGrid');
+            grid.innerHTML = '';
+            
+            // Calculate dates for the week (do this first so we can use it in cell attributes)
+            const weekDates = [];
+            const weekStart = new Date(startDate);
+            for (let i = 0; i < 7; i++) {
+                const date = new Date(weekStart);
+                date.setDate(date.getDate() + i);
+                weekDates.push(date.toISOString().split('T')[0]); // YYYY-MM-DD
+            }
+            console.log('Week dates:', weekDates);
+            
+            // Create rows for each shift type
+            Object.entries(SHIFT_DEFINITIONS).forEach(([shiftType, times]) => {
+                const row = document.createElement('tr');
+                
+                // Add shift type cell - just use the shift type without times
+                const typeCell = document.createElement('td');
+                typeCell.textContent = shiftType;
+                row.appendChild(typeCell);
+                
+                // Add cells for each day (Monday to Sunday)
+                for (let i = 0; i < 7; i++) {
+                    const cell = document.createElement('td');
+                    cell.id = `cell-${shiftType}-${i}`;
+                    cell.setAttribute('data-day', DAYS_ORDER[i]);
+                    cell.setAttribute('data-date', weekDates[i]); // Store date in cell
+                    cell.setAttribute('data-shift-type', shiftType); // Store shift type
+                    
+                    // Make empty cells clickable for adding new shifts
+                    cell.ondblclick = () => addNewShift(shiftType, i, weekDates[i]);
+                    
+                    row.appendChild(cell);
+                }
+                
+                grid.appendChild(row);
+            });
+
+            // Fetch and display shifts
+            const response = await fetch(`/api/shifts?start=${startDate}&days=7`);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch shifts: ${response.statusText}`);
+            }
+            
+            const shifts = await response.json();
+            console.log('Loading shifts:', shifts);
+            
+            shifts.forEach(shift => {
+                // Get the date part of the shift start time
+                const shiftDate = shift.start.split(' ')[0]; // YYYY-MM-DD
+                
+                // Find which day of the week this shift belongs to
+                const dayIndex = weekDates.indexOf(shiftDate);
+                
+                console.log('Placing shift:', {
+                    type: shift.shift_type,
+                    caregiver: shift.caregiver_name,
+                    shiftDate: shiftDate,
+                    dayIndex: dayIndex,
+                    day: dayIndex >= 0 ? DAYS_ORDER[dayIndex] : 'Unknown'
+                });
+                
+                // If we found a valid day for this shift
+                if (dayIndex >= 0) {
+                    const cell = document.getElementById(`cell-${shift.shift_type}-${dayIndex}`);
+                    if (cell) {
+                        const shiftBlock = document.createElement('div');
+                        shiftBlock.className = 'shift-cell';
+                        shiftBlock.style.backgroundColor = `${shift.color}40`;
+                        shiftBlock.style.borderLeft = `4px solid ${shift.color}`;
+                        shiftBlock.innerHTML = `
+                            <div class="shift-type">${shift.caregiver_name}</div>
+                            <div class="shift-time">${shift.shift_type}</div>
+                        `;
+                        shiftBlock.onclick = () => editShift(shift.id);
+                        cell.appendChild(shiftBlock);
+                    } else {
+                        console.error('Cell not found for shift:', {
+                            type: shift.shift_type,
+                            day: DAYS_ORDER[dayIndex],
+                            cellId: `cell-${shift.shift_type}-${dayIndex}`
+                        });
+                    }
+                } else {
+                    console.error('Shift date not in current week:', {
+                        shiftDate: shiftDate, 
+                        weekDates: weekDates
+                    });
+                }
+            });
+        } catch (error) {
+            console.error('Error loading shifts:', error);
+            alert('Failed to load shifts. Please try again.');
+        } finally {
+            document.getElementById('loadingSpinner').style.display = 'none';
+        }
+    }
+
+    // Add a way to show messages to the user
+    function showMessage(text, isError = false) {
+        // Create the message element
+        const div = document.createElement('div');
+        div.className = `alert ${isError ? 'alert-danger' : 'alert-success'} position-fixed`;
+        div.style.top = '20px';
+        div.style.right = '20px';
+        div.style.zIndex = 1050; // Higher than modals
+        div.textContent = text;
+        
+        // Add to the body
+        document.body.appendChild(div);
+        
+        // Auto-remove after 3 seconds
+        setTimeout(() => {
+            div.classList.add('fade');
+            setTimeout(() => div.remove(), 300);
+        }, 3000);
+    }
+
+    function getMonday(date) {
+        const d = new Date(date);
+        const day = d.getDay();
+        const diff = d.getDate() - day + (day === 0 ? -6 : 1); // adjust when day is Sunday
+        return new Date(d.setDate(diff));
+    }
+
+    function saveWeek() {
+        const startDate = currentWeekStart.toISOString().split('T')[0];
+        
+        const saveButton = document.querySelector('button.btn-success');
+        saveButton.disabled = true;
+        saveButton.textContent = 'Saving...';
+
+        // First clear existing shifts
+        fetch(`/api/shifts?start=${startDate}&days=7`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to clear existing shifts');
+            
+            const shifts = [];
+            
+            // For each shift type row in the grid
+            const rows = document.getElementById('scheduleGrid').children;
+            Array.from(rows).forEach(row => {
+                // Get shift type from first cell
+                const cellText = row.children[0].textContent.trim();
+                
+                // Extract valid shift type by checking each key in SHIFT_DEFINITIONS
+                let shiftType = null;
+                for (const validType of Object.keys(SHIFT_DEFINITIONS)) {
+                    if (cellText === validType) { // Exact match only
+                        shiftType = validType;
+                        break;
+                    }
+                }
+                
+                if (!shiftType) {
+                    console.error(`No valid shift type found in: ${cellText}`);
+                    return; // Skip this row
+                }
+                
+                // Process each day cell (skip first cell which is shift type)
+                for (let dayIndex = 1; dayIndex <= 7; dayIndex++) {
+                    const cell = row.children[dayIndex];
+                    const shiftBlock = cell?.querySelector('.shift-cell');
+                    
+                    if (shiftBlock) {
+                        // Get caregiver name from the shift-type div
+                        const caregiverName = shiftBlock.querySelector('.shift-type').textContent.trim();
+                        
+                        // Calculate date for this cell - this is the key part!
+                        // dayIndex is 1-based in our loop, but we need 0-based for date calculation
+                        const cellDate = new Date(currentWeekStart);
+                        cellDate.setDate(cellDate.getDate() + (dayIndex - 1));
+                        const dateStr = cellDate.toISOString().split('T')[0];
+                        
+                        console.log(`Creating shift: ${shiftType} on ${dateStr} (${DAYS_ORDER[dayIndex-1]}) for ${caregiverName}`);
+                        
+                        // Create shift data with BOTH start and end on the SAME DAY
+                        // This ensures Monday shifts stay on Monday
+                        let shiftData = {
+                            caregiver_id: caregiverName, // Server expects name here, not ID
+                            shift_type: shiftType,
+                            start: `${dateStr} ${SHIFT_DEFINITIONS[shiftType].start}`,
+                            end: `${dateStr} ${SHIFT_DEFINITIONS[shiftType].end}`
+                        };
+                        
+                        console.log('Shift data being saved:', shiftData);
+                        shifts.push(shiftData);
+                    }
+                }
+            });
+            
+            if (shifts.length === 0) {
+                throw new Error('No valid shifts found to save. Please add shifts first.');
+            }
+            
+            // Save all shifts
+            return shifts.reduce((promise, shift) => {
+                return promise.then(() => {
+                    console.log(`Saving shift: ${shift.shift_type} on ${shift.start.split(' ')[0]} for ${shift.caregiver_id}`);
+                    
+                    return fetch('/api/shifts', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(shift)
+                    }).then(response => {
+                        if (!response.ok) {
+                            return response.text().then(text => {
+                                console.error('Server error response:', text);
+                                throw new Error(`Failed to save shift: ${response.statusText} - ${text}`);
+                            });
+                        }
+                        return response.json();
+                    });
+                });
+            }, Promise.resolve());
+        })
+        .then(() => {
+            showMessage('Week saved successfully');
+            loadWeek(startDate);
+        })
+        .catch(error => {
+            console.error('Error saving week:', error);
+            showMessage('Failed to save week: ' + error.message, true);
+        })
+        .finally(() => {
+            saveButton.disabled = false;
+            saveButton.textContent = 'Save Changes';
+        });
+    }
+
+    // Function to add a new shift by selecting a caregiver
+    function addNewShift(shiftType, dayIndex, dateStr) {
+        // Get all caregivers
+        fetch('/api/caregivers')
+            .then(response => response.json())
+            .then(caregivers => {
+                if (caregivers.length === 0) {
+                    showMessage('No caregivers available. Please add caregivers first.', true);
+                    return;
+                }
+                
+                // Create a simple popup to select caregiver
+                const caregiverSelector = document.createElement('div');
+                caregiverSelector.className = 'modal fade';
+                caregiverSelector.innerHTML = `
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Assign ${shiftType} Shift for ${DAYS_ORDER[dayIndex]}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="caregiver-select" class="form-label">Select Caregiver:</label>
+                                <select id="caregiver-select" class="form-select">
+                                    ${caregivers.map(c => `<option value="${c.name}">${c.name}</option>`).join('')}
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary" id="save-shift-btn">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(caregiverSelector);
+                
+                // Show the modal
+                const modal = new bootstrap.Modal(caregiverSelector);
+                modal.show();
+                
+                // Handle save button click
+                document.getElementById('save-shift-btn').onclick = () => {
+                    const caregiverName = document.getElementById('caregiver-select').value;
+                    const caregiver = caregivers.find(c => c.name === caregiverName);
+                    
+                    if (!caregiver) {
+                        showMessage('Please select a caregiver', true);
+                        return;
+                    }
+                    
+                    // Create the shift data
+                    const shiftData = {
+                        caregiver_id: caregiverName,
+                        shift_type: shiftType,
+                        start: `${dateStr} ${SHIFT_DEFINITIONS[shiftType].start}`,
+                        end: `${dateStr} ${SHIFT_DEFINITIONS[shiftType].end}`
+                    };
+                    
+                    // Save the shift
+                    fetch('/api/shifts', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(shiftData)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.text().then(text => {
+                                throw new Error(`Failed to save shift: ${text}`);
+                            });
+                        }
+                        return response.json();
+                    })
+                    .then(() => {
+                        modal.hide();
+                        caregiverSelector.remove();
+                        showMessage('Shift added successfully');
+                        
+                        // Reload week to show the new shift
+                        loadWeek(currentWeekStart.toISOString().split('T')[0]);
+                    })
+                    .catch(error => {
+                        console.error('Error adding shift:', error);
+                        showMessage(`Error: ${error.message}`, true);
+                    });
+                };
+                
+                // Clean up when modal is closed
+                caregiverSelector.addEventListener('hidden.bs.modal', () => {
+                    caregiverSelector.remove();
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching caregivers:', error);
+                showMessage('Failed to load caregivers', true);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        currentWeekStart = getMonday(new Date());
+        loadWeek(currentWeekStart.toISOString().split('T')[0]);
+    });
+</script>
+{% endblock %} 

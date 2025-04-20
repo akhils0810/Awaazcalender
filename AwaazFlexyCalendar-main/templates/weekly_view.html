@@ -1,0 +1,436 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<style>
+    .week-grid {
+        margin-top: 20px;
+    }
+    .shift-cell {
+        min-height: 80px;
+        padding: 10px;
+        border: 1px solid #dee2e6;
+    }
+    .shift-cell:hover {
+        background-color: #f8f9fa;
+    }
+    .shift-info {
+        padding: 5px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+    .shift-actions {
+        display: none;
+        margin-top: 5px;
+    }
+    .shift-cell:hover .shift-actions {
+        display: block;
+    }
+    .override-indicator {
+        font-size: 0.8em;
+        color: #dc3545;
+        margin-top: 2px;
+    }
+    .nav-tabs .nav-link {
+        color: #495057;
+    }
+    .nav-tabs .nav-link.active {
+        font-weight: bold;
+    }
+    .add-shift-btn {
+        width: 100%;
+        margin-top: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>Weekly Schedule View</h2>
+    </div>
+    <div class="col-md-4 text-end">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#configureViewModal">
+            Configure View
+        </button>
+    </div>
+</div>
+
+<!-- Week Tabs -->
+<ul class="nav nav-tabs" id="weekTabs" role="tablist">
+    <!-- Tabs will be dynamically populated -->
+</ul>
+
+<!-- Tab Content -->
+<div class="tab-content" id="weekTabsContent">
+    <!-- Week grids will be dynamically populated -->
+</div>
+
+<!-- Configure View Modal -->
+<div class="modal fade" id="configureViewModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Configure Weekly View</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="configureForm">
+                    <div class="mb-3">
+                        <label for="startDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="startDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="numWeeks" class="form-label">Number of Weeks</label>
+                        <input type="number" class="form-control" id="numWeeks" min="1" max="12" value="4" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="templateId" class="form-label">Load from Template (Optional)</label>
+                        <select class="form-select" id="templateId">
+                            <option value="">Select Template</option>
+                            {% for template in templates %}
+                            <option value="{{ template.id }}">{{ template.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="generateWeeklyView()">Generate</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add/Edit Shift Modal -->
+<div class="modal fade" id="shiftModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add/Edit Shift</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="shiftForm">
+                    <input type="hidden" id="shiftId">
+                    <input type="hidden" id="shiftDate">
+                    <div class="mb-3">
+                        <label for="caregiverId" class="form-label">Caregiver</label>
+                        <select class="form-select" id="caregiverId" required>
+                            <option value="">Select Caregiver</option>
+                            {% for caregiver in caregivers %}
+                            <option value="{{ caregiver.id }}" data-color="{{ caregiver.color }}">
+                                {{ caregiver.name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="shiftType" class="form-label">Shift Type</label>
+                        <select class="form-select" id="shiftType" required>
+                            <option value="">Select Shift Type</option>
+                            {% for shift_name, times in shift_definitions.items() %}
+                            <option value="{{ shift_name }}">{{ shift_name }} ({{ times.start }}-{{ times.end }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="isOverride">
+                        <label class="form-check-label" for="isOverride">
+                            Mark as Override
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger me-2" onclick="deleteShift()" id="deleteShiftBtn" style="display: none;">Delete</button>
+                <button type="button" class="btn btn-primary" onclick="saveShift()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentWeeks = [];
+let currentShifts = {};
+
+function generateWeeklyView() {
+    const startDate = document.getElementById('startDate').value;
+    const numWeeks = parseInt(document.getElementById('numWeeks').value);
+    const templateId = document.getElementById('templateId').value;
+
+    if (!startDate || !numWeeks) {
+        alert('Please fill in all required fields');
+        return;
+    }
+
+    // Generate week dates
+    currentWeeks = [];
+    let date = new Date(startDate);
+    for (let i = 0; i < numWeeks; i++) {
+        currentWeeks.push({
+            start: new Date(date),
+            end: new Date(date.setDate(date.getDate() + 6))
+        });
+        date.setDate(date.getDate() + 1); // Start next week
+    }
+
+    // Generate tabs and content
+    generateTabs();
+    
+    // Load template if selected
+    if (templateId) {
+        loadTemplateForWeeks(templateId);
+    } else {
+        loadShiftsForWeeks();
+    }
+
+    // Close modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('configureViewModal'));
+    modal.hide();
+}
+
+function generateTabs() {
+    const tabList = document.getElementById('weekTabs');
+    const tabContent = document.getElementById('weekTabsContent');
+    
+    tabList.innerHTML = '';
+    tabContent.innerHTML = '';
+
+    currentWeeks.forEach((week, index) => {
+        const weekNum = index + 1;
+        const startStr = week.start.toLocaleDateString();
+        const endStr = week.end.toLocaleDateString();
+
+        // Create tab
+        const tab = document.createElement('li');
+        tab.className = 'nav-item';
+        tab.innerHTML = `
+            <button class="nav-link ${index === 0 ? 'active' : ''}" 
+                    id="week${weekNum}-tab" 
+                    data-bs-toggle="tab" 
+                    data-bs-target="#week${weekNum}" 
+                    type="button">
+                Week ${weekNum}<br>
+                <small>${startStr} - ${endStr}</small>
+            </button>
+        `;
+        tabList.appendChild(tab);
+
+        // Create tab content
+        const content = document.createElement('div');
+        content.className = `tab-pane fade ${index === 0 ? 'show active' : ''}`;
+        content.id = `week${weekNum}`;
+        content.innerHTML = generateWeekGrid(week, weekNum);
+        tabContent.appendChild(content);
+    });
+}
+
+function generateWeekGrid(week, weekNum) {
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const shifts = Object.keys({{ shift_definitions|tojson|safe }});
+    
+    let html = '<div class="week-grid">';
+    html += '<div class="table-responsive">';
+    html += '<table class="table table-bordered">';
+    
+    // Header
+    html += '<thead><tr><th>Shift</th>';
+    days.forEach(day => {
+        html += `<th>${day}</th>`;
+    });
+    html += '</tr></thead>';
+    
+    // Body
+    html += '<tbody>';
+    shifts.forEach(shift => {
+        html += `<tr><th>${shift}</th>`;
+        days.forEach((day, dayIndex) => {
+            const date = new Date(week.start);
+            date.setDate(date.getDate() + dayIndex);
+            const dateStr = date.toISOString().split('T')[0];
+            
+            html += `
+                <td class="shift-cell" data-date="${dateStr}" data-shift="${shift}">
+                    <div class="shift-content"></div>
+                    <button class="btn btn-sm btn-outline-primary add-shift-btn" 
+                            onclick="showAddShiftModal('${dateStr}', '${shift}')">
+                        Add Shift
+                    </button>
+                </td>
+            `;
+        });
+        html += '</tr>';
+    });
+    html += '</tbody></table></div></div>';
+    
+    return html;
+}
+
+function loadShiftsForWeeks() {
+    const startDate = currentWeeks[0].start.toISOString().split('T')[0];
+    const endDate = currentWeeks[currentWeeks.length - 1].end.toISOString().split('T')[0];
+    
+    fetch(`/api/shifts?start=${startDate}&end=${endDate}`)
+        .then(response => response.json())
+        .then(shifts => {
+            currentShifts = shifts;
+            updateShiftDisplay();
+        })
+        .catch(error => {
+            console.error('Error loading shifts:', error);
+            alert('Failed to load shifts. Please try again.');
+        });
+}
+
+function loadTemplateForWeeks(templateId) {
+    const startDate = currentWeeks[0].start.toISOString().split('T')[0];
+    
+    fetch(`/api/templates/${templateId}/apply`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            start_date: startDate,
+            num_weeks: currentWeeks.length
+        })
+    })
+    .then(response => response.json())
+    .then(() => {
+        loadShiftsForWeeks();
+    })
+    .catch(error => {
+        console.error('Error loading template:', error);
+        alert('Failed to load template. Please try again.');
+    });
+}
+
+function updateShiftDisplay() {
+    document.querySelectorAll('.shift-cell').forEach(cell => {
+        const date = cell.dataset.date;
+        const shiftType = cell.dataset.shift;
+        const shift = currentShifts.find(s => 
+            s.date === date && 
+            s.shift_type === shiftType
+        );
+        
+        const contentDiv = cell.querySelector('.shift-content');
+        if (shift) {
+            const caregiver = {{ caregivers|tojson|safe }}.find(c => c.id === parseInt(shift.caregiver_id));
+            contentDiv.innerHTML = `
+                <div class="shift-info" style="background-color: ${caregiver.color}20;">
+                    <strong>${caregiver.name}</strong>
+                    ${shift.is_override ? '<div class="override-indicator">Override</div>' : ''}
+                    <div class="shift-actions">
+                        <button class="btn btn-sm btn-outline-secondary" 
+                                onclick="editShift('${shift.id}')">
+                            Edit
+                        </button>
+                    </div>
+                </div>
+            `;
+        } else {
+            contentDiv.innerHTML = '';
+        }
+    });
+}
+
+function showAddShiftModal(date, shiftType) {
+    document.getElementById('shiftId').value = '';
+    document.getElementById('shiftDate').value = date;
+    document.getElementById('caregiverId').value = '';
+    document.getElementById('shiftType').value = shiftType;
+    document.getElementById('isOverride').checked = false;
+    document.getElementById('deleteShiftBtn').style.display = 'none';
+    
+    const modal = new bootstrap.Modal(document.getElementById('shiftModal'));
+    modal.show();
+}
+
+function editShift(shiftId) {
+    const shift = currentShifts.find(s => s.id === shiftId);
+    if (!shift) return;
+
+    document.getElementById('shiftId').value = shiftId;
+    document.getElementById('shiftDate').value = shift.date;
+    document.getElementById('caregiverId').value = shift.caregiver_id;
+    document.getElementById('shiftType').value = shift.shift_type;
+    document.getElementById('isOverride').checked = shift.is_override || false;
+    document.getElementById('deleteShiftBtn').style.display = 'block';
+    
+    const modal = new bootstrap.Modal(document.getElementById('shiftModal'));
+    modal.show();
+}
+
+function saveShift() {
+    const shiftId = document.getElementById('shiftId').value;
+    const shiftData = {
+        caregiver_id: document.getElementById('caregiverId').value,
+        shift_type: document.getElementById('shiftType').value,
+        date: document.getElementById('shiftDate').value,
+        is_override: document.getElementById('isOverride').checked
+    };
+
+    if (!shiftData.caregiver_id || !shiftData.shift_type || !shiftData.date) {
+        alert('Please fill in all required fields');
+        return;
+    }
+
+    const url = shiftId ? `/api/shifts/${shiftId}` : '/api/shifts';
+    const method = shiftId ? 'PUT' : 'POST';
+
+    fetch(url, {
+        method: method,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(shiftData)
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Failed to save shift');
+        return response.json();
+    })
+    .then(() => {
+        loadShiftsForWeeks();
+        const modal = bootstrap.Modal.getInstance(document.getElementById('shiftModal'));
+        modal.hide();
+    })
+    .catch(error => {
+        console.error('Error saving shift:', error);
+        alert('Failed to save shift. Please try again.');
+    });
+}
+
+function deleteShift() {
+    const shiftId = document.getElementById('shiftId').value;
+    if (!shiftId || !confirm('Are you sure you want to delete this shift?')) return;
+
+    fetch(`/api/shifts/${shiftId}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Failed to delete shift');
+        loadShiftsForWeeks();
+        const modal = bootstrap.Modal.getInstance(document.getElementById('shiftModal'));
+        modal.hide();
+    })
+    .catch(error => {
+        console.error('Error deleting shift:', error);
+        alert('Failed to delete shift. Please try again.');
+    });
+}
+
+// Initialize date input with current date
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const monday = new Date(today);
+    monday.setDate(today.getDate() + (8 - today.getDay()) % 7);
+    document.getElementById('startDate').value = monday.toISOString().split('T')[0];
+});
+</script>
+{% endblock %} 
